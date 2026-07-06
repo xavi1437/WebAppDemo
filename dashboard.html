@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css" />
+  <script src="dashboard.js" defer></script>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <h2>My App</h2>
+
+      <nav>
+        <a href="#" class="active">Dashboard</a>
+        <a href="#" id="profileBtn">Profile</a>
+        <a href="#" id="settingsBtn">Settings</a>
+        <a href="#" id="logoutBtn">Logout</a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div>
+          <h1>Welcome, <span id="usernameText">User</span></h1>
+          <p>You are now logged in.</p>
+        </div>
+
+        <button id="logoutTopBtn" class="logout-button">Logout</button>
+      </header>
+
+      <section class="cards">
+        <div class="card">
+          <h3>Status</h3>
+          <p>Active</p>
+        </div>
+
+        <div class="card">
+          <h3>Messages</h3>
+          <p>0 new</p>
+        </div>
+
+        <div class="card">
+          <h3>Account</h3>
+          <p>Standard User</p>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>User Area</h2>
+        <p>This is your main GUI after login. You can add more buttons, forms, tables, or pages here.</p>
+
+        <div class="actions">
+          <button id="viewProfileBtn">View Profile</button>
+          <button id="openSettingsBtn">Open Settings</button>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

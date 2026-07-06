@@ -16,7 +16,7 @@
 
   <header class="site-header">
     <nav class="nav container" aria-label="Main navigation">
-      <a class="brand" href="#home" aria-label="TaskFlow home">
+      <a class="brand" href="index.html" aria-label="TaskFlow home" aria-current="page">
         <span class="brand-mark">✓</span>
         <span>TaskFlow</span>
       </a>
@@ -28,15 +28,15 @@
       </button>
 
       <div class="nav-links" data-nav-links>
-        <a href="#tutorial">Tutorial</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#resources">Resources</a>
-        <a class="nav-signin" href="#signup">Sign up</a>
+        <a href="tutorial.html">Tutorial</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="resources.html">Resources</a>
+        <a class="nav-signin" href="signup.html">Sign up</a>
       </div>
     </nav>
   </header>
 
-  <main id="home">
+  <main>
     <section class="hero section">
       <div class="container hero-grid">
         <div class="hero-copy reveal">
@@ -47,8 +47,8 @@
             accountability, and progress in one simple place.
           </p>
           <div class="hero-actions">
-            <a class="button button-primary" href="#signup">Start free demo</a>
-            <a class="button button-secondary" href="#tutorial">See how it works</a>
+            <a class="button button-primary" href="signup.html">Start free demo</a>
+            <a class="button button-secondary" href="tutorial.html">See how it works</a>
           </div>
           <div class="hero-stats" aria-label="Product highlights">
             <div>
@@ -139,158 +139,34 @@
       </div>
     </section>
 
-    <section id="tutorial" class="section tutorial">
-      <div class="container tutorial-grid">
-        <div class="section-heading left reveal">
-          <p class="eyebrow">Tutorial</p>
-          <h2>From empty workspace to organized sprint in minutes.</h2>
-          <p>Guide demo users through the basic workflow without needing accounts, backend logic, or real project data.</p>
-        </div>
-
-        <div class="steps reveal">
-          <article class="step-card active" data-step="1">
-            <span>01</span>
-            <div>
-              <h3>Create a workspace</h3>
-              <p>Start with a project name, team goal, and default board columns.</p>
-            </div>
-          </article>
-          <article class="step-card" data-step="2">
-            <span>02</span>
-            <div>
-              <h3>Add tasks</h3>
-              <p>Use mock tasks to demonstrate priorities, due dates, owners, and status.</p>
-            </div>
-          </article>
-          <article class="step-card" data-step="3">
-            <span>03</span>
-            <div>
-              <h3>Track progress</h3>
-              <p>Show progress bars, task counts, and simple status summaries.</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="pricing" class="section pricing">
-      <div class="container section-heading reveal">
-        <p class="eyebrow">Pricing</p>
-        <h2>Simple plans for individuals, teams, and growing operations.</h2>
-        <p>These are demo prices and can be changed once your real product model is ready.</p>
-      </div>
-
-      <div class="container pricing-grid">
-        <article class="price-card reveal">
-          <h3>Starter</h3>
-          <p class="price">€0<span>/mo</span></p>
-          <p class="price-note">For solo planning and early testing.</p>
-          <ul>
-            <li>3 active projects</li>
-            <li>Basic task boards</li>
-            <li>Mock demo data</li>
-          </ul>
-          <a class="button button-secondary full" href="#signup">Try Starter</a>
-        </article>
-
-        <article class="price-card featured reveal">
-          <div class="popular-badge">Most popular</div>
-          <h3>Team</h3>
-          <p class="price">€12<span>/user/mo</span></p>
-          <p class="price-note">For teams that need ownership and visibility.</p>
-          <ul>
-            <li>Unlimited projects</li>
-            <li>Timeline and board views</li>
-            <li>Priority and status tracking</li>
-            <li>Team activity feed</li>
-          </ul>
-          <a class="button button-primary full" href="#signup">Choose Team</a>
-        </article>
-
-        <article class="price-card reveal">
-          <h3>Scale</h3>
-          <p class="price">Custom</p>
-          <p class="price-note">For larger workflows and server integrations.</p>
-          <ul>
-            <li>Advanced permissions</li>
-            <li>API integrations</li>
-            <li>Admin reporting</li>
-          </ul>
-          <a class="button button-secondary full" href="#signup">Contact sales</a>
-        </article>
-      </div>
-    </section>
-
-    <section id="resources" class="section resources">
-      <div class="container section-heading reveal">
-        <p class="eyebrow">Resources</p>
-        <h2>Helpful material for users exploring the platform.</h2>
-        <p>These cards are placeholders you can later link to documentation, templates, or case studies.</p>
-      </div>
-
-      <div class="container resource-grid">
-        <article class="resource-card reveal">
-          <p>Guide</p>
-          <h3>How to structure your first sprint board</h3>
-          <a href="#tutorial">Read guide →</a>
-        </article>
-        <article class="resource-card reveal">
-          <p>Template</p>
-          <h3>Weekly planning checklist for remote teams</h3>
-          <a href="#signup">Get template →</a>
-        </article>
-        <article class="resource-card reveal">
-          <p>Demo</p>
-          <h3>Mock data model for future API integration</h3>
-          <a href="README.md">View notes →</a>
-        </article>
-      </div>
-    </section>
-
-    <section id="signup" class="section signup-section">
+    <section class="section page-cta">
       <div class="container signup-card reveal">
         <div>
-          <p class="eyebrow">Sign up</p>
-          <h2>Join the demo waitlist.</h2>
-          <p>This form works as a frontend demo only. It stores nothing and sends nothing until you connect a real backend.</p>
+          <p class="eyebrow">Separate pages</p>
+          <h2>Explore the demo like a real product website.</h2>
+          <p>The tutorial, pricing, resources, and signup areas now live on separate pages while sharing the same design system.</p>
         </div>
-
-        <form class="signup-form" data-signup-form>
-          <label>
-            Name
-            <input type="text" name="name" placeholder="Alex Morgan" required />
-          </label>
-          <label>
-            Email
-            <input type="email" name="email" placeholder="alex@example.com" required />
-          </label>
-          <label>
-            Team size
-            <select name="teamSize">
-              <option>Just me</option>
-              <option>2–10</option>
-              <option>11–50</option>
-              <option>51+</option>
-            </select>
-          </label>
-          <button class="button button-primary full" type="submit">Request access</button>
-          <p class="form-message" data-form-message role="status" aria-live="polite"></p>
-        </form>
+        <div class="cta-link-grid">
+          <a class="resource-card" href="tutorial.html"><p>Learn</p><h3>Tutorial page</h3></a>
+          <a class="resource-card" href="pricing.html"><p>Compare</p><h3>Pricing page</h3></a>
+          <a class="resource-card" href="resources.html"><p>Explore</p><h3>Resources page</h3></a>
+          <a class="resource-card" href="signup.html"><p>Join</p><h3>Signup page</h3></a>
+        </div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="container footer-grid">
-      <a class="brand" href="#home">
+      <a class="brand" href="index.html">
         <span class="brand-mark">✓</span>
         <span>TaskFlow</span>
       </a>
       <p>Static demo frontend for a future task management platform.</p>
       <div class="footer-links">
-        <a href="#tutorial">Tutorial</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#resources">Resources</a>
+        <a href="tutorial.html">Tutorial</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="resources.html">Resources</a>
       </div>
     </div>
   </footer>

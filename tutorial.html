@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tutorial — TaskFlow</title>
+  <meta name="description" content="Learn how TaskFlow organizes work into projects, tasks, owners, and progress." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page-glow page-glow-one"></div>
+  <div class="page-glow page-glow-two"></div>
+
+  <header class="site-header">
+    <nav class="nav container" aria-label="Main navigation">
+      <a class="brand" href="index.html" aria-label="TaskFlow home">
+        <span class="brand-mark">✓</span>
+        <span>TaskFlow</span>
+      </a>
+      <button class="mobile-menu-button" type="button" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+      <div class="nav-links" data-nav-links>
+        <a href="tutorial.html" aria-current="page">Tutorial</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="resources.html">Resources</a>
+        <a class="nav-signin" href="signup.html">Sign up</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="section page-hero">
+      <div class="container section-heading reveal">
+        <p class="eyebrow">Tutorial</p>
+        <h1>From empty workspace to organized sprint in minutes.</h1>
+        <p>Guide demo users through the basic workflow without needing accounts, backend logic, or real project data.</p>
+      </div>
+    </section>
+
+    <section class="section tutorial">
+      <div class="container tutorial-grid">
+        <div class="section-heading left reveal">
+          <p class="eyebrow">Core workflow</p>
+          <h2>Show users the product flow step by step.</h2>
+          <p>These cards are interactive in the frontend only. Click each step to highlight the current stage.</p>
+        </div>
+
+        <div class="steps reveal">
+          <article class="step-card active" data-step="1">
+            <span>01</span>
+            <div>
+              <h3>Create a workspace</h3>
+              <p>Start with a project name, team goal, and default board columns such as To do, Doing, and Done.</p>
+            </div>
+          </article>
+          <article class="step-card" data-step="2">
+            <span>02</span>
+            <div>
+              <h3>Add tasks</h3>
+              <p>Use mock tasks to demonstrate priorities, due dates, owners, tags, and current status.</p>
+            </div>
+          </article>
+          <article class="step-card" data-step="3">
+            <span>03</span>
+            <div>
+              <h3>Track progress</h3>
+              <p>Show progress bars, task counts, and simple status summaries that make the board feel alive.</p>
+            </div>
+          </article>
+          <article class="step-card" data-step="4">
+            <span>04</span>
+            <div>
+              <h3>Review and ship</h3>
+              <p>Use completed task lists and activity notes to demonstrate project accountability.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section features">
+      <div class="container feature-grid">
+        <article class="feature-card reveal">
+          <span class="feature-icon">1</span>
+          <h3>Project setup</h3>
+          <p>Explain how a team names a project, chooses a goal, and creates the first board.</p>
+        </article>
+        <article class="feature-card reveal">
+          <span class="feature-icon">2</span>
+          <h3>Task planning</h3>
+          <p>Demonstrate owners, status, priority, due dates, dependencies, and labels.</p>
+        </article>
+        <article class="feature-card reveal">
+          <span class="feature-icon">3</span>
+          <h3>Progress review</h3>
+          <p>Use visual summaries to show what is done, what is blocked, and what needs focus next.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <a class="brand" href="index.html"><span class="brand-mark">✓</span><span>TaskFlow</span></a>
+      <p>Static demo frontend for a future task management platform.</p>
+      <div class="footer-links"><a href="pricing.html">Pricing</a><a href="resources.html">Resources</a><a href="signup.html">Sign up</a></div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

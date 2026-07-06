@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sign up — TaskFlow</title>
+  <meta name="description" content="Join the TaskFlow demo waitlist." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page-glow page-glow-one"></div>
+  <div class="page-glow page-glow-two"></div>
+
+  <header class="site-header">
+    <nav class="nav container" aria-label="Main navigation">
+      <a class="brand" href="index.html" aria-label="TaskFlow home"><span class="brand-mark">✓</span><span>TaskFlow</span></a>
+      <button class="mobile-menu-button" type="button" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+      <div class="nav-links" data-nav-links>
+        <a href="tutorial.html">Tutorial</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="resources.html">Resources</a>
+        <a class="nav-signin" href="signup.html" aria-current="page">Sign up</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="section signup-section">
+      <div class="container signup-card reveal">
+        <div>
+          <p class="eyebrow">Sign up</p>
+          <h1>Join the demo waitlist.</h1>
+          <p>This form works as a frontend demo only. It stores nothing and sends nothing until you connect a real backend.</p>
+          <div class="hero-stats compact-stats" aria-label="Signup benefits">
+            <div><strong>Free</strong><span>demo access</span></div>
+            <div><strong>Mock</strong><span>sample data</span></div>
+            <div><strong>Ready</strong><span>for API later</span></div>
+          </div>
+        </div>
+
+        <form class="signup-form" data-signup-form>
+          <label>
+            Name
+            <input type="text" name="name" placeholder="Alex Morgan" required />
+          </label>
+          <label>
+            Email
+            <input type="email" name="email" placeholder="alex@example.com" required />
+          </label>
+          <label>
+            Team size
+            <select name="teamSize">
+              <option>Just me</option>
+              <option>2–10</option>
+              <option>11–50</option>
+              <option>51+</option>
+            </select>
+          </label>
+          <label>
+            Main goal
+            <select name="goal">
+              <option>Organize team tasks</option>
+              <option>Track project deadlines</option>
+              <option>Build a client portal</option>
+              <option>Test the demo UI</option>
+            </select>
+          </label>
+          <button class="button button-primary full" type="submit">Request access</button>
+          <p class="form-message" data-form-message role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <a class="brand" href="index.html"><span class="brand-mark">✓</span><span>TaskFlow</span></a>
+      <p>Static demo frontend for a future task management platform.</p>
+      <div class="footer-links"><a href="tutorial.html">Tutorial</a><a href="pricing.html">Pricing</a><a href="resources.html">Resources</a></div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

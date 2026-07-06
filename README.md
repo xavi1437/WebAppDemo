@@ -1,14 +1,20 @@
-# TaskFlow Demo
+# TaskFlow Multi-Page Demo
 
-A static frontend demo for a future task management platform. It includes:
+A static frontend demo for a future task management platform. This version separates the main website sections into individual pages.
 
-- Main landing page
-- Tutorial section
-- Pricing section
-- Resources section
-- Signup/demo waitlist form
-- Mock task-management dashboard visuals
-- Responsive mobile navigation
+## Pages
+
+- `index.html` — main landing page
+- `tutorial.html` — product tutorial / workflow page
+- `pricing.html` — pricing plans page
+- `resources.html` — resources, guides, and templates page
+- `signup.html` — demo signup / waitlist page
+
+## Included files
+
+- `styles.css` — shared responsive design system
+- `script.js` — mobile navigation, reveal animations, tutorial card interaction, and local-only signup message
+- `README.md` — setup notes
 
 ## How to run locally
 
@@ -27,7 +33,7 @@ http://localhost:8000
 ## How to use with GitHub Pages
 
 1. Create a new GitHub repository.
-2. Upload these files to the repository root.
+2. Upload all files from this folder to the repository root.
 3. Go to **Settings → Pages**.
 4. Choose deployment from the main branch/root folder.
 5. Save and wait for GitHub Pages to publish the demo.
@@ -40,7 +46,7 @@ The signup form currently does not send data anywhere. When your server/API is r
 await fetch('/api/signup', {
   method: 'POST',
   headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({ name, email, teamSize })
+  body: JSON.stringify({ name, email, teamSize, goal })
 });
 ```
 

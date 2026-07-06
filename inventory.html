@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Inventory — TaskFlow Connect</title>
+  <meta name="description" content="TaskFlow Connect static dashboard demo." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="index.html">
+        <div class="brand-logo">T</div>
+        <div class="brand-wordmark"><strong>connect</strong><span>TaskFlow platform</span></div>
+      </a>
+      <div class="sidebar-section-title">Workspace</div>
+      <ul class="nav-list"><li class="nav-item"><a class="nav-link" href="index.html"><span class="nav-label"><span class="nav-icon">⌂</span><span>Main dashboard</span></span><span></span></a></li>
+<li class="nav-item"><a class="nav-link" href="task-description.html"><span class="nav-label"><span class="nav-icon">🗂</span><span>Task description</span></span><span class="nav-badge">12</span></a></li>
+<li class="nav-item"><a class="nav-link" href="planification.html"><span class="nav-label"><span class="nav-icon">🗓</span><span>Planification</span></span><span></span></a></li>
+<li class="nav-item"><a class="nav-link active" href="inventory.html"><span class="nav-label"><span class="nav-icon">◫</span><span>Inventory</span></span><span class="nav-badge">8</span></a></li>
+<li class="nav-item"><a class="nav-link" href="alerts.html"><span class="nav-label"><span class="nav-icon">⚠</span><span>Alerts</span></span><span class="nav-badge">5</span></a></li>
+<li class="nav-item"><a class="nav-link" href="workers.html"><span class="nav-label"><span class="nav-icon">👥</span><span>Workers</span></span><span class="nav-badge">24</span></a></li>
+<li class="nav-item"><a class="nav-link" href="configuration.html"><span class="nav-label"><span class="nav-icon">⚙</span><span>Configuration</span></span><span></span></a></li></ul>
+      <div class="sidebar-footer">
+        <strong>Frontend demo only</strong>
+        Built to feel like a live operations platform with mock data and a Garmin-inspired interface.
+      </div>
+    </aside>
+
+    <div class="main-area">
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="menu-toggle" type="button" aria-label="Toggle sidebar" data-menu-toggle><span></span><span></span><span></span></button>
+          <div>
+            <div class="page-kicker">Stock & materials</div>
+            <div class="page-title-inline">Inventory</div>
+          </div>
+        </div>
+        <div class="topbar-right">
+          <button class="icon-button" type="button" aria-label="Sync">☁</button>
+          <button class="icon-button" type="button" aria-label="Notifications">🔔</button>
+          <button class="icon-button" type="button" aria-label="Help">?</button>
+          <div class="user-pill">
+            <div class="avatar">BB</div>
+            <div><strong>Blau Bloom</strong><span>Operations admin</span></div>
+          </div>
+        </div>
+      </header>
+
+      <main class="content">
+        <div class="page-header">
+          <div>
+            <h1>Inventory</h1>
+            <p>Monitor materials, reorder thresholds, stock movement, and availability for the tasks and teams on the platform.</p>
+          </div>
+          <div class="action-row"><button class="button">Import stock</button><button class="button button-primary">Add item</button></div>
+        </div>
+        <section class="grid inventory-grid">
+      <article class="card"><div class="card-inner"><div class="card-header"><div><h2 class="card-title">Inventory health</h2><p class="card-subtitle">Overall stock readiness</p></div><span class="pill green">92% ready</span></div>
+        <div class="progress-group"><div class="progress-label"><span>Available units</span><strong>1,284</strong></div><div class="progress success"><span style="width:92%"></span></div></div>
+        <div class="progress-group"><div class="progress-label"><span>Reserved</span><strong>214</strong></div><div class="progress"><span style="width:36%"></span></div></div>
+        <div class="progress-group"><div class="progress-label"><span>Low stock</span><strong>8 items</strong></div><div class="progress danger"><span style="width:18%"></span></div></div>
+      </div></article>
+      <article class="card"><div class="card-inner"><div class="card-header"><div><h2 class="card-title">Fast facts</h2><p class="card-subtitle">Today at a glance</p></div></div>
+        <ul class="list-clean">
+          <li class="inventory-row"><div class="row-main"><strong>Incoming shipment</strong><span>ETA 14:30 · Dock 2</span></div><span class="pill blue">16 crates</span></li>
+          <li class="inventory-row"><div class="row-main"><strong>Pending cycle count</strong><span>Zone C and cold room</span></div><span class="pill orange">2 zones</span></li>
+          <li class="inventory-row"><div class="row-main"><strong>Backordered references</strong><span>Need replacement planning</span></div><span class="pill red">3 items</span></li>
+        </ul>
+      </div></article>
+    </section>
+
+    <section class="card"><div class="card-inner"><div class="card-header"><div><h2 class="card-title">Stock table</h2><p class="card-subtitle">Representative demo records</p></div><div class="filter-row"><span class="filter-chip active">All</span><span class="filter-chip">Low stock</span><span class="filter-chip">Reserved</span><span class="filter-chip">Backorder</span></div></div>
+      <div class="table-wrap"><table class="table"><thead><tr><th>SKU</th><th>Item</th><th>Location</th><th>On hand</th><th>Reserved</th><th>Threshold</th><th>Status</th></tr></thead><tbody>
+        <tr><td>EQ-102</td><td>Inspection tablets</td><td>Warehouse A</td><td>44</td><td>8</td><td>12</td><td><span class="pill green">Healthy</span></td></tr>
+        <tr><td>MT-231</td><td>Safety helmets</td><td>Warehouse B</td><td>17</td><td>4</td><td>15</td><td><span class="pill orange">Watch</span></td></tr>
+        <tr><td>BT-048</td><td>Battery packs</td><td>Service room</td><td>6</td><td>2</td><td>10</td><td><span class="pill red">Low</span></td></tr>
+        <tr><td>PR-909</td><td>Printer labels</td><td>Admin storage</td><td>140</td><td>20</td><td>30</td><td><span class="pill green">Healthy</span></td></tr>
+        <tr><td>SP-550</td><td>Spare sensors</td><td>Repair bench</td><td>3</td><td>1</td><td>8</td><td><span class="pill red">Reorder</span></td></tr>
+      </tbody></table></div>
+    </div></section>
+        <div class="footer-note">Static GitHub-ready demo. Replace the mock content later with real server data.</div>
+      </main>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

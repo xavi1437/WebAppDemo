@@ -1,57 +1,34 @@
-# TaskFlow Multi-Page Demo
+# TaskFlow Connect Dashboard Demo
 
-A static frontend demo for a future task management platform. This version separates the main website sections into individual pages.
+A static, GitHub-ready dashboard demo inspired by the visual structure of Garmin Connect: dark left navigation, light content cards, and a clean operational layout.
 
-## Pages
+## Included pages
 
-- `index.html` — main landing page
-- `tutorial.html` — product tutorial / workflow page
-- `pricing.html` — pricing plans page
-- `resources.html` — resources, guides, and templates page
-- `signup.html` — demo signup / waitlist page
+- `index.html` — Main dashboard panel
+- `task-description.html` — Task detail / form page
+- `planification.html` — Weekly planning page
+- `inventory.html` — Inventory overview page
+- `alerts.html` — Alerts and history page
+- `workers.html` — Worker roster and availability page
+- `configuration.html` — Settings page
+- `styles.css` — Shared styling
+- `script.js` — Small mobile sidebar toggle
 
-## Included files
+## Run locally
 
-- `styles.css` — shared responsive design system
-- `script.js` — mobile navigation, reveal animations, tutorial card interaction, and local-only signup message
-- `README.md` — setup notes
+Just open `index.html` in a browser.
 
-## How to run locally
+## Publish to GitHub Pages
 
-Open `index.html` directly in your browser, or run a small local server:
+1. Create a GitHub repository.
+2. Upload all files from this folder to the root of the repository.
+3. In GitHub, open **Settings → Pages**.
+4. Under **Build and deployment**, choose **Deploy from a branch**.
+5. Select the `main` branch and `/root` folder.
+6. Save and wait for the site to publish.
 
-```bash
-python3 -m http.server 8000
-```
+## Notes
 
-Then visit:
-
-```text
-http://localhost:8000
-```
-
-## How to use with GitHub Pages
-
-1. Create a new GitHub repository.
-2. Upload all files from this folder to the repository root.
-3. Go to **Settings → Pages**.
-4. Choose deployment from the main branch/root folder.
-5. Save and wait for GitHub Pages to publish the demo.
-
-## Future backend integration
-
-The signup form currently does not send data anywhere. When your server/API is ready, replace the form submit logic in `script.js` with a `fetch()` call, for example:
-
-```js
-await fetch('/api/signup', {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({ name, email, teamSize, goal })
-});
-```
-
-You can also replace the dashboard preview with real data from an endpoint such as:
-
-```text
-GET /api/projects/:projectId/tasks
-```
+- This is a frontend-only demo.
+- All data is mock data.
+- You can later replace the cards and tables with API calls to your server.

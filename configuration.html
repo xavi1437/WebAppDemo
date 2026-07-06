@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Configuration — TaskFlow Connect</title>
+  <meta name="description" content="TaskFlow Connect static dashboard demo." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="index.html">
+        <div class="brand-logo">T</div>
+        <div class="brand-wordmark"><strong>connect</strong><span>TaskFlow platform</span></div>
+      </a>
+      <div class="sidebar-section-title">Workspace</div>
+      <ul class="nav-list"><li class="nav-item"><a class="nav-link" href="index.html"><span class="nav-label"><span class="nav-icon">⌂</span><span>Main dashboard</span></span><span></span></a></li>
+<li class="nav-item"><a class="nav-link" href="task-description.html"><span class="nav-label"><span class="nav-icon">🗂</span><span>Task description</span></span><span class="nav-badge">12</span></a></li>
+<li class="nav-item"><a class="nav-link" href="planification.html"><span class="nav-label"><span class="nav-icon">🗓</span><span>Planification</span></span><span></span></a></li>
+<li class="nav-item"><a class="nav-link" href="inventory.html"><span class="nav-label"><span class="nav-icon">◫</span><span>Inventory</span></span><span class="nav-badge">8</span></a></li>
+<li class="nav-item"><a class="nav-link" href="alerts.html"><span class="nav-label"><span class="nav-icon">⚠</span><span>Alerts</span></span><span class="nav-badge">5</span></a></li>
+<li class="nav-item"><a class="nav-link" href="workers.html"><span class="nav-label"><span class="nav-icon">👥</span><span>Workers</span></span><span class="nav-badge">24</span></a></li>
+<li class="nav-item"><a class="nav-link active" href="configuration.html"><span class="nav-label"><span class="nav-icon">⚙</span><span>Configuration</span></span><span></span></a></li></ul>
+      <div class="sidebar-footer">
+        <strong>Frontend demo only</strong>
+        Built to feel like a live operations platform with mock data and a Garmin-inspired interface.
+      </div>
+    </aside>
+
+    <div class="main-area">
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="menu-toggle" type="button" aria-label="Toggle sidebar" data-menu-toggle><span></span><span></span><span></span></button>
+          <div>
+            <div class="page-kicker">System settings</div>
+            <div class="page-title-inline">Configuration</div>
+          </div>
+        </div>
+        <div class="topbar-right">
+          <button class="icon-button" type="button" aria-label="Sync">☁</button>
+          <button class="icon-button" type="button" aria-label="Notifications">🔔</button>
+          <button class="icon-button" type="button" aria-label="Help">?</button>
+          <div class="user-pill">
+            <div class="avatar">BB</div>
+            <div><strong>Blau Bloom</strong><span>Operations admin</span></div>
+          </div>
+        </div>
+      </header>
+
+      <main class="content">
+        <div class="page-header">
+          <div>
+            <h1>Configuration</h1>
+            <p>Configure visual behavior, alert rules, task defaults, and access settings for the eventual connected platform.</p>
+          </div>
+          <div class="action-row"><button class="button">Reset defaults</button><button class="button button-primary">Publish changes</button></div>
+        </div>
+        <section class="grid settings-grid">
+      <article class="card"><div class="card-inner"><div class="card-header"><div><h2 class="card-title">General settings</h2><p class="card-subtitle">Common platform preferences</p></div></div>
+        <div class="setting-row"><div class="setting-copy"><strong>Enable dashboard auto refresh</strong><span>Refresh mock cards every 5 minutes when real data is connected.</span></div><div class="toggle on"></div></div>
+        <div class="setting-row"><div class="setting-copy"><strong>Compact card density</strong><span>Use tighter spacing similar to operational dashboards.</span></div><div class="toggle on"></div></div>
+        <div class="setting-row"><div class="setting-copy"><strong>Show resolved alerts on dashboard</strong><span>Include informational events on the main panel.</span></div><div class="toggle"></div></div>
+        <div class="setting-row"><div class="setting-copy"><strong>Require task approval before close</strong><span>Managers must validate critical tasks.</span></div><div class="toggle on"></div></div>
+      </div></article>
+      <article class="card"><div class="card-inner"><div class="card-header"><div><h2 class="card-title">Alert routing</h2><p class="card-subtitle">Who gets notified</p></div></div>
+        <div class="setting-row"><div class="setting-copy"><strong>Critical alerts to admins</strong><span>Email and in-app notification.</span></div><div class="toggle on"></div></div>
+        <div class="setting-row"><div class="setting-copy"><strong>Inventory warnings to stock managers</strong><span>Notify when thresholds are crossed.</span></div><div class="toggle on"></div></div>
+        <div class="setting-row"><div class="setting-copy"><strong>Task breach escalation</strong><span>Escalate 30 minutes after missed deadline.</span></div><div class="toggle on"></div></div>
+        <div class="setting-row"><div class="setting-copy"><strong>Worker no-show SMS</strong><span>Send SMS backup notifications.</span></div><div class="toggle"></div></div>
+      </div></article>
+    </section>
+
+    <section class="card"><div class="card-inner"><div class="card-header"><div><h2 class="card-title">Default values</h2><p class="card-subtitle">Mock platform form settings</p></div></div>
+      <div class="form-grid">
+        <label class="form-field"><span>Default task owner</span><input class="text-input" value="Unassigned" /></label>
+        <label class="form-field"><span>Default task priority</span><select class="select-input"><option>Normal</option><option>Urgent</option><option>Low</option></select></label>
+        <label class="form-field"><span>Timezone</span><select class="select-input"><option>Europe/Paris</option><option>UTC</option><option>America/New_York</option></select></label>
+        <label class="form-field"><span>Inventory threshold policy</span><select class="select-input"><option>Percent based</option><option>Unit based</option></select></label>
+        <label class="form-field full-span"><span>Notes</span><textarea class="text-input">This configuration page is a static demonstration for GitHub Pages. Connect a backend later to persist user settings.</textarea></label>
+      </div>
+    </div></section>
+        <div class="footer-note">Static GitHub-ready demo. Replace the mock content later with real server data.</div>
+      </main>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -3,174 +3,132 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>TaskFlow — Task Management Platform Demo</title>
-  <meta name="description" content="A polished static web demo for a task management platform." />
+  <title>Main dashboard — TaskFlow Connect</title>
+  <meta name="description" content="TaskFlow Connect static dashboard demo." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="page-glow page-glow-one"></div>
-  <div class="page-glow page-glow-two"></div>
-
-  <header class="site-header">
-    <nav class="nav container" aria-label="Main navigation">
-      <a class="brand" href="index.html" aria-label="TaskFlow home" aria-current="page">
-        <span class="brand-mark">✓</span>
-        <span>TaskFlow</span>
-      </a>
-
-      <button class="mobile-menu-button" type="button" aria-label="Toggle navigation" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-
-      <div class="nav-links" data-nav-links>
-        <a href="tutorial.html">Tutorial</a>
-        <a href="pricing.html">Pricing</a>
-        <a href="resources.html">Resources</a>
-        <a class="nav-signin" href="signup.html">Sign up</a>
-      </div>
-    </nav>
-  </header>
-
-  <main>
-    <section class="hero section">
-      <div class="container hero-grid">
-        <div class="hero-copy reveal">
-          <p class="eyebrow">Task management for focused teams</p>
-          <h1>Plan, assign, and finish work without the chaos.</h1>
-          <p class="hero-subtitle">
-            TaskFlow is a clean project workspace for teams that need priorities, deadlines,
-            accountability, and progress in one simple place.
-          </p>
-          <div class="hero-actions">
-            <a class="button button-primary" href="signup.html">Start free demo</a>
-            <a class="button button-secondary" href="tutorial.html">See how it works</a>
-          </div>
-          <div class="hero-stats" aria-label="Product highlights">
-            <div>
-              <strong>4.8x</strong>
-              <span>faster planning</span>
-            </div>
-            <div>
-              <strong>92%</strong>
-              <span>clearer ownership</span>
-            </div>
-            <div>
-              <strong>0</strong>
-              <span>real data required</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="dashboard-card reveal" aria-label="TaskFlow dashboard preview">
-          <div class="dashboard-toolbar">
-            <div>
-              <span class="toolbar-dot"></span>
-              <span class="toolbar-dot"></span>
-              <span class="toolbar-dot"></span>
-            </div>
-            <span class="toolbar-label">Sprint board</span>
-          </div>
-
-          <div class="dashboard-summary">
-            <div>
-              <p>Today’s focus</p>
-              <h2>Product launch</h2>
-            </div>
-            <span class="status-pill">On track</span>
-          </div>
-
-          <div class="progress-wrap">
-            <div class="progress-label">
-              <span>Launch readiness</span>
-              <strong>76%</strong>
-            </div>
-            <div class="progress-bar"><span style="width: 76%"></span></div>
-          </div>
-
-          <div class="kanban-preview">
-            <article>
-              <h3>To do</h3>
-              <div class="task-card mini high">Write onboarding guide</div>
-              <div class="task-card mini">Define QA checklist</div>
-            </article>
-            <article>
-              <h3>Doing</h3>
-              <div class="task-card mini medium">Design pricing page</div>
-              <div class="task-card mini">Connect analytics events</div>
-            </article>
-            <article>
-              <h3>Done</h3>
-              <div class="task-card mini low">Create release notes</div>
-              <div class="task-card mini">Approve brand assets</div>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section features" aria-label="Platform features">
-      <div class="container section-heading reveal">
-        <p class="eyebrow">Built for momentum</p>
-        <h2>Everything your demo needs to feel like a real platform.</h2>
-        <p>Use this frontend with mock data now, then replace the mock layer with your server API later.</p>
-      </div>
-
-      <div class="container feature-grid">
-        <article class="feature-card reveal">
-          <span class="feature-icon">▣</span>
-          <h3>Boards & lists</h3>
-          <p>Organize tasks by status, project, assignee, or priority with a clear visual workflow.</p>
-        </article>
-        <article class="feature-card reveal">
-          <span class="feature-icon">⌁</span>
-          <h3>Smart priorities</h3>
-          <p>Highlight blocked work, upcoming deadlines, and tasks that need attention first.</p>
-        </article>
-        <article class="feature-card reveal">
-          <span class="feature-icon">◷</span>
-          <h3>Timeline view</h3>
-          <p>Show a realistic roadmap so users understand when work starts, moves, and ships.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="section page-cta">
-      <div class="container signup-card reveal">
-        <div>
-          <p class="eyebrow">Separate pages</p>
-          <h2>Explore the demo like a real product website.</h2>
-          <p>The tutorial, pricing, resources, and signup areas now live on separate pages while sharing the same design system.</p>
-        </div>
-        <div class="cta-link-grid">
-          <a class="resource-card" href="tutorial.html"><p>Learn</p><h3>Tutorial page</h3></a>
-          <a class="resource-card" href="pricing.html"><p>Compare</p><h3>Pricing page</h3></a>
-          <a class="resource-card" href="resources.html"><p>Explore</p><h3>Resources page</h3></a>
-          <a class="resource-card" href="signup.html"><p>Join</p><h3>Signup page</h3></a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-grid">
+  <div class="app-shell">
+    <aside class="sidebar">
       <a class="brand" href="index.html">
-        <span class="brand-mark">✓</span>
-        <span>TaskFlow</span>
+        <div class="brand-logo">T</div>
+        <div class="brand-wordmark"><strong>connect</strong><span>TaskFlow platform</span></div>
       </a>
-      <p>Static demo frontend for a future task management platform.</p>
-      <div class="footer-links">
-        <a href="tutorial.html">Tutorial</a>
-        <a href="pricing.html">Pricing</a>
-        <a href="resources.html">Resources</a>
+      <div class="sidebar-section-title">Workspace</div>
+      <ul class="nav-list"><li class="nav-item"><a class="nav-link active" href="index.html"><span class="nav-label"><span class="nav-icon">⌂</span><span>Main dashboard</span></span><span></span></a></li>
+<li class="nav-item"><a class="nav-link" href="task-description.html"><span class="nav-label"><span class="nav-icon">🗂</span><span>Task description</span></span><span class="nav-badge">12</span></a></li>
+<li class="nav-item"><a class="nav-link" href="planification.html"><span class="nav-label"><span class="nav-icon">🗓</span><span>Planification</span></span><span></span></a></li>
+<li class="nav-item"><a class="nav-link" href="inventory.html"><span class="nav-label"><span class="nav-icon">◫</span><span>Inventory</span></span><span class="nav-badge">8</span></a></li>
+<li class="nav-item"><a class="nav-link" href="alerts.html"><span class="nav-label"><span class="nav-icon">⚠</span><span>Alerts</span></span><span class="nav-badge">5</span></a></li>
+<li class="nav-item"><a class="nav-link" href="workers.html"><span class="nav-label"><span class="nav-icon">👥</span><span>Workers</span></span><span class="nav-badge">24</span></a></li>
+<li class="nav-item"><a class="nav-link" href="configuration.html"><span class="nav-label"><span class="nav-icon">⚙</span><span>Configuration</span></span><span></span></a></li></ul>
+      <div class="sidebar-footer">
+        <strong>Frontend demo only</strong>
+        Built to feel like a live operations platform with mock data and a Garmin-inspired interface.
       </div>
-    </div>
-  </footer>
+    </aside>
 
+    <div class="main-area">
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="menu-toggle" type="button" aria-label="Toggle sidebar" data-menu-toggle><span></span><span></span><span></span></button>
+          <div>
+            <div class="page-kicker">Operations overview</div>
+            <div class="page-title-inline">Main dashboard</div>
+          </div>
+        </div>
+        <div class="topbar-right">
+          <button class="icon-button" type="button" aria-label="Sync">☁</button>
+          <button class="icon-button" type="button" aria-label="Notifications">🔔</button>
+          <button class="icon-button" type="button" aria-label="Help">?</button>
+          <div class="user-pill">
+            <div class="avatar">BB</div>
+            <div><strong>Blau Bloom</strong><span>Operations admin</span></div>
+          </div>
+        </div>
+      </header>
+
+      <main class="content">
+        <div class="page-header">
+          <div>
+            <h1>Main dashboard</h1>
+            <p>A central panel for daily work, task progression, worker activity, stock health, and time-sensitive alerts.</p>
+          </div>
+          <div class="action-row"><a class="button" href="planification.html">View schedule</a><a class="button button-primary" href="task-description.html">Add task</a></div>
+        </div>
+        <section class="grid kpi-grid">
+      <article class="card kpi-card"><div class="card-inner"><div class="card-header"><div><h2 class="card-title">Open tasks</h2><p class="card-subtitle">Tasks currently in progress</p></div><span class="pill blue">Live</span></div><div class="metric">128</div><span class="delta positive">▲ 14 from yesterday</span></div></article>
+      <article class="card kpi-card"><div class="card-inner"><div class="card-header"><div><h2 class="card-title">Planned jobs</h2><p class="card-subtitle">Activities scheduled this week</p></div><span class="pill green">7-day</span></div><div class="metric">42</div><span class="delta positive">▲ 6 newly assigned</span></div></article>
+      <article class="card kpi-card"><div class="card-inner"><div class="card-header"><div><h2 class="card-title">Low inventory</h2><p class="card-subtitle">Items under reorder threshold</p></div><span class="pill orange">Attention</span></div><div class="metric">8</div><span class="delta warning">● Reorder soon</span></div></article>
+      <article class="card kpi-card"><div class="card-inner"><div class="card-header"><div><h2 class="card-title">Critical alerts</h2><p class="card-subtitle">Issues requiring review</p></div><span class="pill red">Priority</span></div><div class="metric">5</div><span class="delta negative">▼ 2 resolved today</span></div></article>
+    </section>
+
+    <section class="grid dashboard-grid">
+      <div class="stack">
+        <article class="card"><div class="card-inner"><div class="card-header"><div><h2 class="card-title">Task stream</h2><p class="card-subtitle">Top tasks by urgency and deadline</p></div><a class="muted-link" href="task-description.html">Manage tasks</a></div>
+          <ul class="list-clean">
+            <li class="task-row"><div class="row-main"><strong>Prepare equipment inspection brief</strong><span>Assigned to Maya · Due today at 15:00</span></div><span class="pill red">Urgent</span></li>
+            <li class="task-row"><div class="row-main"><strong>Validate warehouse intake forms</strong><span>Assigned to Carlos · Due tomorrow</span></div><span class="pill orange">Review</span></li>
+            <li class="task-row"><div class="row-main"><strong>Update crew task templates</strong><span>Assigned to Naomi · Friday 11:30</span></div><span class="pill blue">Planned</span></li>
+            <li class="task-row"><div class="row-main"><strong>Close completed work orders</strong><span>Assigned to Julien · 18 items pending</span></div><span class="pill green">Batch</span></li>
+          </ul>
+        </div></article>
+
+        <article class="card"><div class="card-inner"><div class="card-header"><div><h2 class="card-title">Weekly task planning</h2><p class="card-subtitle">Execution rate by operational lane</p></div><a class="muted-link" href="planification.html">Open planification</a></div>
+          <div class="progress-group"><div class="progress-label"><span>Field operations</span><strong>82%</strong></div><div class="progress"><span style="width:82%"></span></div></div>
+          <div class="progress-group"><div class="progress-label"><span>Maintenance</span><strong>69%</strong></div><div class="progress success"><span style="width:69%"></span></div></div>
+          <div class="progress-group"><div class="progress-label"><span>Logistics</span><strong>57%</strong></div><div class="progress warning"><span style="width:57%"></span></div></div>
+          <div class="progress-group"><div class="progress-label"><span>Documentation</span><strong>74%</strong></div><div class="progress"><span style="width:74%"></span></div></div>
+        </div></article>
+      </div>
+
+      <div class="stack">
+        <article class="card"><div class="card-inner"><div class="card-header"><div><h2 class="card-title">Fulfillment progress</h2><p class="card-subtitle">Current sprint completion</p></div><span class="pill gray">Week 18</span></div>
+          <div class="ring-wrap"><div class="ring-box"><div class="ring" style="--percent: 77"></div><div class="ring-value"><strong>77%</strong><span>Overall completion</span></div></div>
+            <div>
+              <div class="progress-group"><div class="progress-label"><span>Completed</span><strong>92 tasks</strong></div><div class="progress success"><span style="width:77%"></span></div></div>
+              <div class="progress-group"><div class="progress-label"><span>Remaining</span><strong>28 tasks</strong></div><div class="progress danger"><span style="width:23%"></span></div></div>
+              <p class="card-subtitle">Target close date: Friday, 18:00.</p>
+            </div>
+          </div>
+        </div></article>
+
+        <article class="card"><div class="card-inner"><div class="card-header"><div><h2 class="card-title">Alerts feed</h2><p class="card-subtitle">Newest operational events</p></div><a class="muted-link" href="alerts.html">See all</a></div>
+          <ul class="list-clean">
+            <li class="alert-row"><div class="row-main"><strong>Forklift battery bank below threshold</strong><span>Warehouse A · 10 min ago</span></div><span class="pill red">Critical</span></li>
+            <li class="alert-row"><div class="row-main"><strong>Task 481 waiting for supervisor approval</strong><span>Quality control · 34 min ago</span></div><span class="pill orange">Pending</span></li>
+            <li class="alert-row"><div class="row-main"><strong>Worker shift completed ahead of plan</strong><span>Route team 3 · 1 h ago</span></div><span class="pill green">Info</span></li>
+          </ul>
+        </div></article>
+      </div>
+
+      <div class="stack">
+        <article class="card"><div class="card-inner"><div class="card-header"><div><h2 class="card-title">Worker availability</h2><p class="card-subtitle">Today by team</p></div><a class="muted-link" href="workers.html">Manage workers</a></div>
+          <ul class="list-clean">
+            <li class="worker-row"><div class="row-main"><strong>Field team</strong><span>14 active · 2 off shift</span></div><span class="pill blue">88%</span></li>
+            <li class="worker-row"><div class="row-main"><strong>Warehouse crew</strong><span>8 active · 1 training</span></div><span class="pill green">90%</span></li>
+            <li class="worker-row"><div class="row-main"><strong>Maintenance</strong><span>6 active · 2 on call</span></div><span class="pill orange">75%</span></li>
+            <li class="worker-row"><div class="row-main"><strong>Admin support</strong><span>5 active · 0 issues</span></div><span class="pill green">100%</span></li>
+          </ul>
+        </div></article>
+
+        <article class="card"><div class="card-inner"><div class="card-header"><div><h2 class="card-title">Quick actions</h2><p class="card-subtitle">Create or navigate instantly</p></div></div>
+          <div class="quick-actions">
+            <a class="quick-tile" href="task-description.html"><div class="quick-plus">+</div><strong>New task</strong><span>Create a fresh task brief</span></a>
+            <a class="quick-tile" href="inventory.html"><div class="quick-plus">+</div><strong>Add stock</strong><span>Register received items</span></a>
+            <a class="quick-tile" href="alerts.html"><div class="quick-plus">+</div><strong>Flag issue</strong><span>Open an alert manually</span></a>
+            <a class="quick-tile" href="configuration.html"><div class="quick-plus">+</div><strong>Settings</strong><span>Adjust platform rules</span></a>
+          </div>
+        </div></article>
+      </div>
+    </section>
+        <div class="footer-note">Static GitHub-ready demo. Replace the mock content later with real server data.</div>
+      </main>
+    </div>
+  </div>
   <script src="script.js"></script>
 </body>
 </html>

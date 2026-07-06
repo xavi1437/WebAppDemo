@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alerts — TaskFlow Connect</title>
+  <meta name="description" content="TaskFlow Connect static dashboard demo." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="index.html">
+        <div class="brand-logo">T</div>
+        <div class="brand-wordmark"><strong>connect</strong><span>TaskFlow platform</span></div>
+      </a>
+      <div class="sidebar-section-title">Workspace</div>
+      <ul class="nav-list"><li class="nav-item"><a class="nav-link" href="index.html"><span class="nav-label"><span class="nav-icon">⌂</span><span>Main dashboard</span></span><span></span></a></li>
+<li class="nav-item"><a class="nav-link" href="task-description.html"><span class="nav-label"><span class="nav-icon">🗂</span><span>Task description</span></span><span class="nav-badge">12</span></a></li>
+<li class="nav-item"><a class="nav-link" href="planification.html"><span class="nav-label"><span class="nav-icon">🗓</span><span>Planification</span></span><span></span></a></li>
+<li class="nav-item"><a class="nav-link" href="inventory.html"><span class="nav-label"><span class="nav-icon">◫</span><span>Inventory</span></span><span class="nav-badge">8</span></a></li>
+<li class="nav-item"><a class="nav-link active" href="alerts.html"><span class="nav-label"><span class="nav-icon">⚠</span><span>Alerts</span></span><span class="nav-badge">5</span></a></li>
+<li class="nav-item"><a class="nav-link" href="workers.html"><span class="nav-label"><span class="nav-icon">👥</span><span>Workers</span></span><span class="nav-badge">24</span></a></li>
+<li class="nav-item"><a class="nav-link" href="configuration.html"><span class="nav-label"><span class="nav-icon">⚙</span><span>Configuration</span></span><span></span></a></li></ul>
+      <div class="sidebar-footer">
+        <strong>Frontend demo only</strong>
+        Built to feel like a live operations platform with mock data and a Garmin-inspired interface.
+      </div>
+    </aside>
+
+    <div class="main-area">
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="menu-toggle" type="button" aria-label="Toggle sidebar" data-menu-toggle><span></span><span></span><span></span></button>
+          <div>
+            <div class="page-kicker">Issues & exceptions</div>
+            <div class="page-title-inline">Alerts</div>
+          </div>
+        </div>
+        <div class="topbar-right">
+          <button class="icon-button" type="button" aria-label="Sync">☁</button>
+          <button class="icon-button" type="button" aria-label="Notifications">🔔</button>
+          <button class="icon-button" type="button" aria-label="Help">?</button>
+          <div class="user-pill">
+            <div class="avatar">BB</div>
+            <div><strong>Blau Bloom</strong><span>Operations admin</span></div>
+          </div>
+        </div>
+      </header>
+
+      <main class="content">
+        <div class="page-header">
+          <div>
+            <h1>Alerts</h1>
+            <p>Track critical notifications, warnings, and informational events that may impact tasks, workers, or inventory.</p>
+          </div>
+          <div class="action-row"><button class="button">Export log</button><button class="button button-primary">Create alert</button></div>
+        </div>
+        <section class="card"><div class="card-inner"><div class="card-header"><div><h2 class="card-title">Filters</h2><p class="card-subtitle">Current alert view</p></div><div class="filter-row"><span class="filter-chip active">All alerts</span><span class="filter-chip">Critical</span><span class="filter-chip">Pending approval</span><span class="filter-chip">Resolved</span></div></div></div></section>
+    <section class="grid alerts-grid">
+      <article class="card"><div class="card-inner"><div class="card-header"><div><h2 class="card-title">Open alerts</h2><p class="card-subtitle">Newest first</p></div><span class="pill red">5 open</span></div>
+        <ul class="list-clean">
+          <li class="alert-row"><div class="row-main"><strong>Battery bank below threshold</strong><span>Warehouse A · triggered 10 min ago</span></div><span class="pill red">Critical</span></li>
+          <li class="alert-row"><div class="row-main"><strong>TK-481 approval overdue</strong><span>Field operations · 34 min ago</span></div><span class="pill orange">Pending</span></li>
+          <li class="alert-row"><div class="row-main"><strong>Spare sensor stock mismatch</strong><span>Repair bench · 1 h ago</span></div><span class="pill red">Critical</span></li>
+          <li class="alert-row"><div class="row-main"><strong>Late check-in from route team 2</strong><span>Dispatch · 2 h ago</span></div><span class="pill orange">Review</span></li>
+          <li class="alert-row"><div class="row-main"><strong>Config rule changed by admin</strong><span>Settings · 3 h ago</span></div><span class="pill blue">Info</span></li>
+        </ul>
+      </div></article>
+      <article class="card"><div class="card-inner"><div class="card-header"><div><h2 class="card-title">Escalation matrix</h2><p class="card-subtitle">Mock handling rules</p></div></div>
+        <ul class="list-clean">
+          <li class="event-row"><div class="row-main"><strong>Critical stock issue</strong><span>Notify inventory lead + operations admin within 10 min</span></div></li>
+          <li class="event-row"><div class="row-main"><strong>Worker attendance issue</strong><span>Notify team supervisor within 15 min</span></div></li>
+          <li class="event-row"><div class="row-main"><strong>Task deadline breach</strong><span>Escalate to project owner at +30 min</span></div></li>
+          <li class="event-row"><div class="row-main"><strong>Configuration change</strong><span>Log automatically and notify admins</span></div></li>
+        </ul>
+      </div></article>
+    </section>
+
+    <section class="card"><div class="card-inner"><div class="card-header"><div><h2 class="card-title">Alert history</h2><p class="card-subtitle">Mock event ledger</p></div></div>
+      <div class="table-wrap"><table class="table"><thead><tr><th>Time</th><th>Alert</th><th>Source</th><th>Owner</th><th>Status</th></tr></thead><tbody>
+      <tr><td>11:12</td><td>Battery bank below threshold</td><td>Warehouse A</td><td>Sofia</td><td><span class="pill red">Open</span></td></tr>
+      <tr><td>10:48</td><td>Route team late check-in</td><td>Dispatch</td><td>Marc</td><td><span class="pill orange">Investigating</span></td></tr>
+      <tr><td>09:57</td><td>Approval overdue for TK-481</td><td>Tasks</td><td>Naomi</td><td><span class="pill orange">Pending</span></td></tr>
+      <tr><td>09:06</td><td>Config rule changed</td><td>Settings</td><td>Blau</td><td><span class="pill blue">Logged</span></td></tr>
+      <tr><td>08:33</td><td>Cold room door left open</td><td>Facility</td><td>Ruben</td><td><span class="pill green">Resolved</span></td></tr>
+      </tbody></table></div>
+    </div></section>
+        <div class="footer-note">Static GitHub-ready demo. Replace the mock content later with real server data.</div>
+      </main>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

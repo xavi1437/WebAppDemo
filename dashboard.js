@@ -1,7 +1,7 @@
 // Protect the dashboard page.
 // If the user is not logged in, send them back to the login page.
 if (sessionStorage.getItem("loggedIn") !== "true") {
-  window.location.replace("login.html");
+  window.location.replace("index.html");
 }
 
 const username = sessionStorage.getItem("username") || "User";
@@ -14,7 +14,7 @@ if (usernameText) {
 function logout() {
   sessionStorage.removeItem("loggedIn");
   sessionStorage.removeItem("username");
-  window.location.href = "login.html";
+  window.location.href = "index.html";
 }
 
 document.getElementById("logoutBtn")?.addEventListener("click", logout);

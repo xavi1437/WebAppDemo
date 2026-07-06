@@ -42,9 +42,14 @@ const formMessage = document.querySelector('[data-form-message]');
 
 signupForm?.addEventListener('submit', (event) => {
   event.preventDefault();
-  const data = new FormData(signupForm);
-  const name = data.get('name') || 'there';
 
-  formMessage.textContent = `Thanks, ${name}! Demo signup captured locally only.`;
-  signupForm.reset();
+  const data = new FormData(signupForm);
+  const name = data.get('name') || 'User';
+
+  // Mark user as logged in
+  sessionStorage.setItem('loggedIn', 'true');
+  sessionStorage.setItem('username', name);
+
+  // Send user to dashboard GUI
+  window.location.href = 'dashboard.html';
 });

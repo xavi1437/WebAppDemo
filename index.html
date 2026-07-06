@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TaskFlow — Task Management Platform Demo</title>
+  <meta name="description" content="A polished static web demo for a task management platform." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page-glow page-glow-one"></div>
+  <div class="page-glow page-glow-two"></div>
+
+  <header class="site-header">
+    <nav class="nav container" aria-label="Main navigation">
+      <a class="brand" href="#home" aria-label="TaskFlow home">
+        <span class="brand-mark">✓</span>
+        <span>TaskFlow</span>
+      </a>
+
+      <button class="mobile-menu-button" type="button" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="nav-links" data-nav-links>
+        <a href="#tutorial">Tutorial</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#resources">Resources</a>
+        <a class="nav-signin" href="#signup">Sign up</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="home">
+    <section class="hero section">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">Task management for focused teams</p>
+          <h1>Plan, assign, and finish work without the chaos.</h1>
+          <p class="hero-subtitle">
+            TaskFlow is a clean project workspace for teams that need priorities, deadlines,
+            accountability, and progress in one simple place.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#signup">Start free demo</a>
+            <a class="button button-secondary" href="#tutorial">See how it works</a>
+          </div>
+          <div class="hero-stats" aria-label="Product highlights">
+            <div>
+              <strong>4.8x</strong>
+              <span>faster planning</span>
+            </div>
+            <div>
+              <strong>92%</strong>
+              <span>clearer ownership</span>
+            </div>
+            <div>
+              <strong>0</strong>
+              <span>real data required</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="dashboard-card reveal" aria-label="TaskFlow dashboard preview">
+          <div class="dashboard-toolbar">
+            <div>
+              <span class="toolbar-dot"></span>
+              <span class="toolbar-dot"></span>
+              <span class="toolbar-dot"></span>
+            </div>
+            <span class="toolbar-label">Sprint board</span>
+          </div>
+
+          <div class="dashboard-summary">
+            <div>
+              <p>Today’s focus</p>
+              <h2>Product launch</h2>
+            </div>
+            <span class="status-pill">On track</span>
+          </div>
+
+          <div class="progress-wrap">
+            <div class="progress-label">
+              <span>Launch readiness</span>
+              <strong>76%</strong>
+            </div>
+            <div class="progress-bar"><span style="width: 76%"></span></div>
+          </div>
+
+          <div class="kanban-preview">
+            <article>
+              <h3>To do</h3>
+              <div class="task-card mini high">Write onboarding guide</div>
+              <div class="task-card mini">Define QA checklist</div>
+            </article>
+            <article>
+              <h3>Doing</h3>
+              <div class="task-card mini medium">Design pricing page</div>
+              <div class="task-card mini">Connect analytics events</div>
+            </article>
+            <article>
+              <h3>Done</h3>
+              <div class="task-card mini low">Create release notes</div>
+              <div class="task-card mini">Approve brand assets</div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section features" aria-label="Platform features">
+      <div class="container section-heading reveal">
+        <p class="eyebrow">Built for momentum</p>
+        <h2>Everything your demo needs to feel like a real platform.</h2>
+        <p>Use this frontend with mock data now, then replace the mock layer with your server API later.</p>
+      </div>
+
+      <div class="container feature-grid">
+        <article class="feature-card reveal">
+          <span class="feature-icon">▣</span>
+          <h3>Boards & lists</h3>
+          <p>Organize tasks by status, project, assignee, or priority with a clear visual workflow.</p>
+        </article>
+        <article class="feature-card reveal">
+          <span class="feature-icon">⌁</span>
+          <h3>Smart priorities</h3>
+          <p>Highlight blocked work, upcoming deadlines, and tasks that need attention first.</p>
+        </article>
+        <article class="feature-card reveal">
+          <span class="feature-icon">◷</span>
+          <h3>Timeline view</h3>
+          <p>Show a realistic roadmap so users understand when work starts, moves, and ships.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="tutorial" class="section tutorial">
+      <div class="container tutorial-grid">
+        <div class="section-heading left reveal">
+          <p class="eyebrow">Tutorial</p>
+          <h2>From empty workspace to organized sprint in minutes.</h2>
+          <p>Guide demo users through the basic workflow without needing accounts, backend logic, or real project data.</p>
+        </div>
+
+        <div class="steps reveal">
+          <article class="step-card active" data-step="1">
+            <span>01</span>
+            <div>
+              <h3>Create a workspace</h3>
+              <p>Start with a project name, team goal, and default board columns.</p>
+            </div>
+          </article>
+          <article class="step-card" data-step="2">
+            <span>02</span>
+            <div>
+              <h3>Add tasks</h3>
+              <p>Use mock tasks to demonstrate priorities, due dates, owners, and status.</p>
+            </div>
+          </article>
+          <article class="step-card" data-step="3">
+            <span>03</span>
+            <div>
+              <h3>Track progress</h3>
+              <p>Show progress bars, task counts, and simple status summaries.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing" class="section pricing">
+      <div class="container section-heading reveal">
+        <p class="eyebrow">Pricing</p>
+        <h2>Simple plans for individuals, teams, and growing operations.</h2>
+        <p>These are demo prices and can be changed once your real product model is ready.</p>
+      </div>
+
+      <div class="container pricing-grid">
+        <article class="price-card reveal">
+          <h3>Starter</h3>
+          <p class="price">€0<span>/mo</span></p>
+          <p class="price-note">For solo planning and early testing.</p>
+          <ul>
+            <li>3 active projects</li>
+            <li>Basic task boards</li>
+            <li>Mock demo data</li>
+          </ul>
+          <a class="button button-secondary full" href="#signup">Try Starter</a>
+        </article>
+
+        <article class="price-card featured reveal">
+          <div class="popular-badge">Most popular</div>
+          <h3>Team</h3>
+          <p class="price">€12<span>/user/mo</span></p>
+          <p class="price-note">For teams that need ownership and visibility.</p>
+          <ul>
+            <li>Unlimited projects</li>
+            <li>Timeline and board views</li>
+            <li>Priority and status tracking</li>
+            <li>Team activity feed</li>
+          </ul>
+          <a class="button button-primary full" href="#signup">Choose Team</a>
+        </article>
+
+        <article class="price-card reveal">
+          <h3>Scale</h3>
+          <p class="price">Custom</p>
+          <p class="price-note">For larger workflows and server integrations.</p>
+          <ul>
+            <li>Advanced permissions</li>
+            <li>API integrations</li>
+            <li>Admin reporting</li>
+          </ul>
+          <a class="button button-secondary full" href="#signup">Contact sales</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="resources" class="section resources">
+      <div class="container section-heading reveal">
+        <p class="eyebrow">Resources</p>
+        <h2>Helpful material for users exploring the platform.</h2>
+        <p>These cards are placeholders you can later link to documentation, templates, or case studies.</p>
+      </div>
+
+      <div class="container resource-grid">
+        <article class="resource-card reveal">
+          <p>Guide</p>
+          <h3>How to structure your first sprint board</h3>
+          <a href="#tutorial">Read guide →</a>
+        </article>
+        <article class="resource-card reveal">
+          <p>Template</p>
+          <h3>Weekly planning checklist for remote teams</h3>
+          <a href="#signup">Get template →</a>
+        </article>
+        <article class="resource-card reveal">
+          <p>Demo</p>
+          <h3>Mock data model for future API integration</h3>
+          <a href="README.md">View notes →</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="signup" class="section signup-section">
+      <div class="container signup-card reveal">
+        <div>
+          <p class="eyebrow">Sign up</p>
+          <h2>Join the demo waitlist.</h2>
+          <p>This form works as a frontend demo only. It stores nothing and sends nothing until you connect a real backend.</p>
+        </div>
+
+        <form class="signup-form" data-signup-form>
+          <label>
+            Name
+            <input type="text" name="name" placeholder="Alex Morgan" required />
+          </label>
+          <label>
+            Email
+            <input type="email" name="email" placeholder="alex@example.com" required />
+          </label>
+          <label>
+            Team size
+            <select name="teamSize">
+              <option>Just me</option>
+              <option>2–10</option>
+              <option>11–50</option>
+              <option>51+</option>
+            </select>
+          </label>
+          <button class="button button-primary full" type="submit">Request access</button>
+          <p class="form-message" data-form-message role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <a class="brand" href="#home">
+        <span class="brand-mark">✓</span>
+        <span>TaskFlow</span>
+      </a>
+      <p>Static demo frontend for a future task management platform.</p>
+      <div class="footer-links">
+        <a href="#tutorial">Tutorial</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#resources">Resources</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -3,33 +3,34 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Task Description - TaskFlow Connect</title>
+  <title>Tasks - TaskFlow Connect</title>
   <meta name="description" content="TaskFlow Connect task management demo." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <div class="sidebar-scrim" data-sidebar-scrim hidden></div>
   <div class="app-shell">
     <aside class="sidebar">
       <a class="brand" href="index.html">
         <div class="brand-logo">T</div>
-        <div class="brand-wordmark"><strong>connect</strong><span>TaskFlow platform</span></div>
+        <div class="brand-wordmark"><strong>connect</strong><span>Operations workspace</span></div>
       </a>
       <div class="sidebar-section-title">Workspace</div>
       <ul class="nav-list">
-        <li class="nav-item"><a class="nav-link" href="index.html"><span class="nav-label"><span class="nav-icon">Home</span><span>Main dashboard</span></span><span></span></a></li>
-        <li class="nav-item"><a class="nav-link active" href="task-description.html"><span class="nav-label"><span class="nav-icon">Tasks</span><span>Task description</span></span><span class="nav-badge">12</span></a></li>
-        <li class="nav-item"><a class="nav-link" href="planification.html"><span class="nav-label"><span class="nav-icon">Plan</span><span>Planification</span></span><span></span></a></li>
-        <li class="nav-item"><a class="nav-link" href="inventory.html"><span class="nav-label"><span class="nav-icon">Stock</span><span>Inventory</span></span><span class="nav-badge">8</span></a></li>
-        <li class="nav-item"><a class="nav-link" href="alerts.html"><span class="nav-label"><span class="nav-icon">Warn</span><span>Alerts</span></span><span class="nav-badge">5</span></a></li>
-        <li class="nav-item"><a class="nav-link" href="workers.html"><span class="nav-label"><span class="nav-icon">Crew</span><span>Workers</span></span><span class="nav-badge">24</span></a></li>
-        <li class="nav-item"><a class="nav-link" href="configuration.html"><span class="nav-label"><span class="nav-icon">Config</span><span>Configuration</span></span><span></span></a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html"><span class="nav-label"><span class="nav-icon">&#8962;</span><span>Main dashboard</span></span><span></span></a></li>
+        <li class="nav-item"><a class="nav-link active" href="task-description.html"><span class="nav-label"><span class="nav-icon">&#128450;</span><span>Tasks</span></span><span class="nav-badge">12</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="planification.html"><span class="nav-label"><span class="nav-icon">&#128467;</span><span>Planning</span></span><span></span></a></li>
+        <li class="nav-item"><a class="nav-link" href="inventory.html"><span class="nav-label"><span class="nav-icon">&#9723;</span><span>Inventory</span></span><span class="nav-badge">8</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="alerts.html"><span class="nav-label"><span class="nav-icon">&#9888;</span><span>Alerts</span></span><span class="nav-badge">5</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="workers.html"><span class="nav-label"><span class="nav-icon">&#128101;</span><span>Workers</span></span><span class="nav-badge">24</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="configuration.html"><span class="nav-label"><span class="nav-icon">&#9881;</span><span>Configuration</span></span><span></span></a></li>
       </ul>
       <div class="sidebar-footer">
-        <strong>Frontend demo only</strong>
-        Built to feel like a live operations platform with mock data and a Garmin-inspired interface.
+        <strong>Operations workspace</strong>
+        Shared command center for tasks, schedules, inventory, alerts, and frontline coordination.
       </div>
     </aside>
 
@@ -38,13 +39,13 @@
         <div class="topbar-left">
           <button class="menu-toggle" type="button" aria-label="Toggle sidebar" data-menu-toggle><span></span><span></span><span></span></button>
           <div>
-            <div class="page-kicker">Task center</div>
-            <div class="page-title-inline">Task description</div>
+            <div class="page-kicker">Work management</div>
+            <div class="page-title-inline">Tasks</div>
           </div>
         </div>
         <div class="topbar-right">
-          <button class="icon-button" type="button" aria-label="Sync">S</button>
-          <button class="icon-button" type="button" aria-label="Notifications">N</button>
+          <button class="icon-button" type="button" aria-label="Sync">&#9729;</button>
+          <button class="icon-button" type="button" aria-label="Notifications">&#128276;</button>
           <button class="icon-button" type="button" aria-label="Help">?</button>
           <div class="user-pill">
             <div class="avatar">BB</div>
@@ -56,47 +57,39 @@
       <main class="content task-page" data-task-manager>
         <div class="page-header">
           <div>
-            <h1>Task description</h1>
+            <h1>Tasks</h1>
             <p>Review all active tasks in one place, filter the queue, and open any task to update ownership, status, priority, descriptions, and comments.</p>
           </div>
           <div class="action-row">
-            <a class="button" href="index.html">Back to dashboard</a>
-            <button class="button button-primary" type="button" data-open-task-modal>Create task</button>
+            <button class="button button-soft task-create-button" type="button" data-open-task-modal>Create task</button>
           </div>
         </div>
 
         <div class="notice-bar">
-          <span>Task list view with local demo data, filters, create flow, and edit capability.</span>
+          <span>Operational task queue with local demo data, filters, creation flow, and edit controls.</span>
           <span data-last-updated>Last updated - 11:04</span>
         </div>
 
         <section class="grid kpi-grid">
-          <article class="card kpi-card">
+          <article class="card kpi-card" data-kpi-filter="active" tabindex="0" role="button" aria-label="Filter active tasks">
             <div class="card-inner">
-              <div class="card-subtitle">Visible tasks</div>
+              <div class="card-subtitle">Active tasks</div>
               <div class="metric" data-metric-visible>0</div>
-              <div class="delta">After current filters</div>
+              <div class="delta">Open work across the board</div>
             </div>
           </article>
-          <article class="card kpi-card">
+          <article class="card kpi-card" data-kpi-filter="due" tabindex="0" role="button" aria-label="Filter tasks due today or overdue">
             <div class="card-inner">
-              <div class="card-subtitle">In progress</div>
+              <div class="card-subtitle">Tasks due today</div>
               <div class="metric" data-metric-progress>0</div>
-              <div class="delta positive">Currently being executed</div>
+              <div class="delta warning">Includes overdue open tasks</div>
             </div>
           </article>
-          <article class="card kpi-card">
+          <article class="card kpi-card" data-kpi-filter="blocked" tabindex="0" role="button" aria-label="Filter blocked tasks">
             <div class="card-inner">
-              <div class="card-subtitle">Blocked</div>
+              <div class="card-subtitle">Blocked tasks</div>
               <div class="metric" data-metric-blocked>0</div>
-              <div class="delta warning">Need follow-up</div>
-            </div>
-          </article>
-          <article class="card kpi-card">
-            <div class="card-inner">
-              <div class="card-subtitle">Completed</div>
-              <div class="metric" data-metric-completed>0</div>
-              <div class="delta">Hidden when toggle is active</div>
+              <div class="delta warning">Require follow-up</div>
             </div>
           </article>
         </section>
@@ -138,41 +131,24 @@
           </div>
         </section>
 
-        <section class="grid task-layout">
-          <article class="card">
-            <div class="card-inner">
-              <div class="card-header">
-                <div>
-                  <h2 class="card-title">Current tasks</h2>
-                  <p class="card-subtitle">Select a task to inspect details or edit it directly.</p>
-                </div>
-              </div>
-
-              <div class="task-list" data-task-list></div>
-              <div class="empty-state" data-empty-state hidden>
-                <strong>No tasks match these filters.</strong>
-                <span>Try changing the owner, status, or priority filters.</span>
+        <section class="card">
+          <div class="card-inner">
+            <div class="card-header">
+              <div>
+                <h2 class="card-title">Current tasks</h2>
+                <p class="card-subtitle">Click any task row to open its details and activity log.</p>
               </div>
             </div>
-          </article>
 
-          <article class="card">
-            <div class="card-inner task-detail-panel" data-task-detail-panel>
-              <div class="card-header">
-                <div>
-                  <h2 class="card-title">Task details</h2>
-                  <p class="card-subtitle">Click any task from the list to view its latest information.</p>
-                </div>
-              </div>
-              <div class="task-detail-empty">
-                <strong>No task selected yet.</strong>
-                <span>Pick a task from the list to preview its description, comments, and assignment details.</span>
-              </div>
+            <div class="task-list" data-task-list></div>
+            <div class="empty-state" data-empty-state hidden>
+              <strong>No tasks match these filters.</strong>
+              <span>Try changing the owner, status, or priority filters.</span>
             </div>
-          </article>
+          </div>
         </section>
 
-        <div class="footer-note">Static GitHub-ready demo. Replace the mock content later with real server data.</div>
+        <div class="footer-note">Enterprise operations workspace preview for task execution, ownership, and follow-up.</div>
       </main>
     </div>
   </div>
@@ -221,15 +197,15 @@
           </label>
           <label class="form-field">
             <span>Due date</span>
-            <input class="text-input" name="dueDate" placeholder="2026-07-07 15:00" />
+            <input class="text-input" type="date" name="dueDate" />
           </label>
           <label class="form-field full-span">
             <span>Description</span>
             <textarea class="text-input" name="description" required></textarea>
           </label>
           <label class="form-field full-span">
-            <span>Comments</span>
-            <textarea class="text-input" name="comments" placeholder="Add one comment per line"></textarea>
+            <span>Add comment</span>
+            <textarea class="text-input" name="comments" placeholder="Write an update that should appear in the activity log"></textarea>
           </label>
         </div>
 
@@ -238,6 +214,16 @@
           <button class="button button-primary" type="submit">Save task</button>
         </div>
       </form>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" data-task-detail-modal hidden>
+    <div class="modal-dialog modal-dialog-wide">
+      <div class="modal-header modal-header-compact">
+        <div class="modal-header-actions" data-task-detail-header-actions></div>
+        <button class="icon-button modal-close" type="button" aria-label="Close details modal" data-close-task-detail-modal>X</button>
+      </div>
+      <div class="task-detail-panel" data-task-detail-panel></div>
     </div>
   </div>
 

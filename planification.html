@@ -3,31 +3,34 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Planification — TaskFlow Connect</title>
-  <meta name="description" content="TaskFlow Connect static dashboard demo." />
+  <title>Planning - TaskFlow Connect</title>
+  <meta name="description" content="TaskFlow Connect recurring task planning demo." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <div class="sidebar-scrim" data-sidebar-scrim hidden></div>
   <div class="app-shell">
     <aside class="sidebar">
       <a class="brand" href="index.html">
         <div class="brand-logo">T</div>
-        <div class="brand-wordmark"><strong>connect</strong><span>TaskFlow platform</span></div>
+        <div class="brand-wordmark"><strong>connect</strong><span>Operations workspace</span></div>
       </a>
       <div class="sidebar-section-title">Workspace</div>
-      <ul class="nav-list"><li class="nav-item"><a class="nav-link" href="index.html"><span class="nav-label"><span class="nav-icon">⌂</span><span>Main dashboard</span></span><span></span></a></li>
-<li class="nav-item"><a class="nav-link" href="task-description.html"><span class="nav-label"><span class="nav-icon">🗂</span><span>Task description</span></span><span class="nav-badge">12</span></a></li>
-<li class="nav-item"><a class="nav-link active" href="planification.html"><span class="nav-label"><span class="nav-icon">🗓</span><span>Planification</span></span><span></span></a></li>
-<li class="nav-item"><a class="nav-link" href="inventory.html"><span class="nav-label"><span class="nav-icon">◫</span><span>Inventory</span></span><span class="nav-badge">8</span></a></li>
-<li class="nav-item"><a class="nav-link" href="alerts.html"><span class="nav-label"><span class="nav-icon">⚠</span><span>Alerts</span></span><span class="nav-badge">5</span></a></li>
-<li class="nav-item"><a class="nav-link" href="workers.html"><span class="nav-label"><span class="nav-icon">👥</span><span>Workers</span></span><span class="nav-badge">24</span></a></li>
-<li class="nav-item"><a class="nav-link" href="configuration.html"><span class="nav-label"><span class="nav-icon">⚙</span><span>Configuration</span></span><span></span></a></li></ul>
+      <ul class="nav-list">
+        <li class="nav-item"><a class="nav-link" href="index.html"><span class="nav-label"><span class="nav-icon">&#8962;</span><span>Main dashboard</span></span><span></span></a></li>
+        <li class="nav-item"><a class="nav-link" href="task-description.html"><span class="nav-label"><span class="nav-icon">&#128450;</span><span>Tasks</span></span><span class="nav-badge">12</span></a></li>
+        <li class="nav-item"><a class="nav-link active" href="planification.html"><span class="nav-label"><span class="nav-icon">&#128467;</span><span>Planning</span></span><span></span></a></li>
+        <li class="nav-item"><a class="nav-link" href="inventory.html"><span class="nav-label"><span class="nav-icon">&#9723;</span><span>Inventory</span></span><span class="nav-badge">8</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="alerts.html"><span class="nav-label"><span class="nav-icon">&#9888;</span><span>Alerts</span></span><span class="nav-badge">5</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="workers.html"><span class="nav-label"><span class="nav-icon">&#128101;</span><span>Workers</span></span><span class="nav-badge">24</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="configuration.html"><span class="nav-label"><span class="nav-icon">&#9881;</span><span>Configuration</span></span><span></span></a></li>
+      </ul>
       <div class="sidebar-footer">
-        <strong>Frontend demo only</strong>
-        Built to feel like a live operations platform with mock data and a Garmin-inspired interface.
+        <strong>Operations workspace</strong>
+        Shared command center for tasks, schedules, inventory, alerts, and frontline coordination.
       </div>
     </aside>
 
@@ -36,13 +39,13 @@
         <div class="topbar-left">
           <button class="menu-toggle" type="button" aria-label="Toggle sidebar" data-menu-toggle><span></span><span></span><span></span></button>
           <div>
-            <div class="page-kicker">Weekly schedule</div>
-            <div class="page-title-inline">Planification</div>
+            <div class="page-kicker">Recurring operations</div>
+            <div class="page-title-inline">Planning</div>
           </div>
         </div>
         <div class="topbar-right">
-          <button class="icon-button" type="button" aria-label="Sync">☁</button>
-          <button class="icon-button" type="button" aria-label="Notifications">🔔</button>
+          <button class="icon-button" type="button" aria-label="Sync">&#9729;</button>
+          <button class="icon-button" type="button" aria-label="Notifications">&#128276;</button>
           <button class="icon-button" type="button" aria-label="Help">?</button>
           <div class="user-pill">
             <div class="avatar">BB</div>
@@ -51,43 +54,193 @@
         </div>
       </header>
 
-      <main class="content">
+      <main class="content planification-page" data-planification-manager>
         <div class="page-header">
           <div>
-            <h1>Planification</h1>
-            <p>Lay out the week across departments, routes, and support lanes in a clean planner inspired by connected dashboard tools.</p>
+            <h1>Planning</h1>
+            <p>Define periodic tasks once, set how often they repeat, and view their upcoming execution days in a weekly or monthly calendar.</p>
           </div>
-          <div class="action-row"><button class="button">Filter week</button><button class="button button-primary">Create slot</button></div>
+          <div class="action-row">
+            <div class="planification-section-tabs" role="tablist" aria-label="Planification sections">
+              <button class="planification-section-tab active" type="button" data-plan-tab="calendar" aria-pressed="true">Calendar</button>
+              <button class="planification-section-tab" type="button" data-plan-tab="tasks" aria-pressed="false">Periodic tasks</button>
+            </div>
+            <button class="button button-primary" type="button" data-open-recurring-modal data-plan-create-button hidden>Create periodic task</button>
+          </div>
         </div>
-        <section class="card"><div class="card-inner"><div class="card-header"><div><h2 class="card-title">Week 28 planning board</h2><p class="card-subtitle">Monday to Sunday overview</p></div><span class="pill gray">07 Jul - 13 Jul</span></div>
-      <div class="days"><div>Lane</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div><div>Sun</div></div>
-      <div class="timeline">
-        <div class="timeline-row"><div class="timeline-label">Field ops</div><div class="timeline-bar"><span class="timeline-chip blue" style="left:2%;width:32%;">Morning inspections</span><span class="timeline-chip green" style="left:38%;width:26%;">Route execution</span></div></div>
-        <div class="timeline-row"><div class="timeline-label">Warehouse</div><div class="timeline-bar"><span class="timeline-chip orange" style="left:12%;width:18%;">Inventory count</span><span class="timeline-chip blue" style="left:39%;width:40%;">Receiving & sorting</span></div></div>
-        <div class="timeline-row"><div class="timeline-label">Maintenance</div><div class="timeline-bar"><span class="timeline-chip red" style="left:20%;width:22%;">Urgent repair cycle</span><span class="timeline-chip green" style="left:49%;width:18%;">Verification</span></div></div>
-        <div class="timeline-row"><div class="timeline-label">Administration</div><div class="timeline-bar"><span class="timeline-chip blue" style="left:5%;width:16%;">Payroll sync</span><span class="timeline-chip orange" style="left:29%;width:20%;">Audit prep</span><span class="timeline-chip green" style="left:58%;width:17%;">Close reports</span></div></div>
-      </div>
-    </div></section>
 
-    <section class="grid detail-grid">
-      <article class="card"><div class="card-inner"><div class="card-header"><div><h2 class="card-title">Upcoming milestones</h2><p class="card-subtitle">Key checkpoints for the week</p></div></div>
-        <ul class="list-clean">
-          <li class="event-row"><div class="row-main"><strong>Tuesday 09:00 · Inventory recount</strong><span>Lead: Sofia · Warehouse A</span></div><span class="pill blue">Scheduled</span></li>
-          <li class="event-row"><div class="row-main"><strong>Wednesday 14:00 · Vendor alignment call</strong><span>Lead: Marc · Online</span></div><span class="pill gray">Internal</span></li>
-          <li class="event-row"><div class="row-main"><strong>Friday 16:00 · Quality review</strong><span>Lead: Naomi · HQ office</span></div><span class="pill orange">Mandatory</span></li>
-        </ul>
-      </div></article>
-      <article class="card"><div class="card-inner"><div class="card-header"><div><h2 class="card-title">Planning summary</h2><p class="card-subtitle">Allocation by lane</p></div></div>
-        <div class="progress-group"><div class="progress-label"><span>Field operations</span><strong>31h booked</strong></div><div class="progress"><span style="width:78%"></span></div></div>
-        <div class="progress-group"><div class="progress-label"><span>Warehouse</span><strong>26h booked</strong></div><div class="progress warning"><span style="width:65%"></span></div></div>
-        <div class="progress-group"><div class="progress-label"><span>Maintenance</span><strong>20h booked</strong></div><div class="progress danger"><span style="width:50%"></span></div></div>
-        <div class="progress-group"><div class="progress-label"><span>Administration</span><strong>14h booked</strong></div><div class="progress success"><span style="width:42%"></span></div></div>
-      </div></article>
-    </section>
-        <div class="footer-note">Static GitHub-ready demo. Replace the mock content later with real server data.</div>
+        <div class="notice-bar">
+          <span>Recurring work templates drive the calendar below and generate upcoming execution dates automatically.</span>
+          <span data-plan-last-updated>Last updated - 11:04</span>
+        </div>
+
+        <section class="card" data-plan-panel="calendar">
+          <div class="card-inner">
+            <div class="card-header">
+              <div>
+                <h2 class="card-title" data-calendar-title>Weekly calendar</h2>
+                <p class="card-subtitle" data-calendar-range>Loading schedule...</p>
+              </div>
+              <div class="planification-calendar-actions">
+                <div class="calendar-nav">
+                  <button class="button" type="button" data-shift-range="-1">Previous</button>
+                  <button class="button" type="button" data-shift-range="1">Next</button>
+                  <button class="button button-soft" type="button" data-today-plan>Today</button>
+                </div>
+                <div class="calendar-toggle" role="tablist" aria-label="Calendar view">
+                  <button class="calendar-toggle-button active" type="button" data-calendar-view="week" aria-pressed="true">Weekly</button>
+                  <button class="calendar-toggle-button" type="button" data-calendar-view="month" aria-pressed="false">Monthly</button>
+                </div>
+                <span class="pill blue" data-plan-occurrence-count>0 occurrences</span>
+              </div>
+            </div>
+
+            <div class="planner-calendar" data-planner-calendar></div>
+          </div>
+        </section>
+
+        <section class="stack" data-plan-panel="tasks" hidden>
+          <article class="card" data-plan-task-controls>
+            <div class="card-inner">
+              <div class="card-header">
+                <div>
+                  <h2 class="card-title">Filters</h2>
+                  <p class="card-subtitle">Narrow the periodic task list by lane, cadence, or template status.</p>
+                </div>
+              </div>
+
+              <div class="planification-toolbar">
+                <label class="form-field">
+                  <span>Lane</span>
+                  <select class="select-input" data-plan-filter-lane>
+                    <option value="all">All lanes</option>
+                  </select>
+                </label>
+                <label class="form-field">
+                  <span>Cadence</span>
+                  <select class="select-input" data-plan-filter-unit>
+                    <option value="all">All cadences</option>
+                  </select>
+                </label>
+                <label class="form-field">
+                  <span>Search</span>
+                  <input class="text-input" type="search" placeholder="Search periodic tasks" data-plan-search />
+                </label>
+                <label class="task-toggle">
+                  <input type="checkbox" data-plan-hide-paused />
+                  <span>Hide paused templates</span>
+                </label>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-inner">
+              <div class="card-header">
+                <div>
+                  <h2 class="card-title">Periodic task templates</h2>
+                  <p class="card-subtitle">Open any recurring template to review its configuration and update it.</p>
+                </div>
+                <span class="pill gray" data-plan-template-count>0 templates</span>
+              </div>
+
+              <div class="task-list recurring-task-list" data-recurring-task-list></div>
+              <div class="empty-state" data-plan-empty-state hidden>
+                <strong>No periodic tasks match these filters.</strong>
+                <span>Try a different lane, cadence, or search term.</span>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <div class="footer-note">Operations planning workspace preview for recurring execution, cadence control, and calendar visibility.</div>
       </main>
     </div>
   </div>
+
+  <div class="modal-backdrop" data-recurring-modal hidden>
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div>
+          <h2 class="card-title" data-recurring-modal-title>Create periodic task</h2>
+          <p class="card-subtitle">Define the recurring template once and let the planner place each future execution in the calendar.</p>
+        </div>
+        <button class="icon-button modal-close" type="button" aria-label="Close modal" data-close-recurring-modal>X</button>
+      </div>
+      <form class="modal-form" data-recurring-form>
+        <input type="hidden" name="id" />
+        <div class="form-grid">
+          <label class="form-field">
+            <span>Task title</span>
+            <input class="text-input" name="title" required />
+          </label>
+          <label class="form-field">
+            <span>Owner</span>
+            <input class="text-input" name="owner" required />
+          </label>
+          <label class="form-field">
+            <span>Lane</span>
+            <input class="text-input" name="lane" required />
+          </label>
+          <label class="form-field">
+            <span>Status</span>
+            <select class="select-input" name="status" required>
+              <option>Active</option>
+              <option>Paused</option>
+            </select>
+          </label>
+          <label class="form-field">
+            <span>Repeat every</span>
+            <input class="text-input" type="number" min="1" step="1" name="frequencyValue" value="1" required />
+          </label>
+          <label class="form-field">
+            <span>Repeat unit</span>
+            <select class="select-input" name="frequencyUnit" required>
+              <option value="days">Days</option>
+              <option value="weeks">Weeks</option>
+              <option value="months">Months</option>
+            </select>
+          </label>
+          <label class="form-field">
+            <span>Start date</span>
+            <input class="text-input" type="date" name="startDate" required />
+          </label>
+          <label class="form-field">
+            <span>Preferred time</span>
+            <input class="text-input" type="time" name="time" required />
+          </label>
+          <label class="form-field">
+            <span>Expected duration</span>
+            <input class="text-input" name="duration" placeholder="e.g. 2h 30m" required />
+          </label>
+          <label class="form-field">
+            <span>Site or area</span>
+            <input class="text-input" name="area" required />
+          </label>
+          <label class="form-field full-span">
+            <span>Description</span>
+            <textarea class="text-input" name="description" required></textarea>
+          </label>
+        </div>
+
+        <div class="modal-actions">
+          <button class="button" type="button" data-close-recurring-modal>Cancel</button>
+          <button class="button button-primary" type="submit">Save periodic task</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" data-recurring-detail-modal hidden>
+    <div class="modal-dialog modal-dialog-wide">
+      <div class="modal-header modal-header-compact">
+        <div class="modal-header-actions" data-recurring-detail-header-actions></div>
+        <button class="icon-button modal-close" type="button" aria-label="Close periodic task details" data-close-recurring-detail-modal>X</button>
+      </div>
+      <div class="task-detail-panel" data-recurring-detail-panel></div>
+    </div>
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>

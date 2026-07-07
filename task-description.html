@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Task description — TaskFlow Connect</title>
-  <meta name="description" content="TaskFlow Connect static dashboard demo." />
+  <title>Task Description - TaskFlow Connect</title>
+  <meta name="description" content="TaskFlow Connect task management demo." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -18,13 +18,15 @@
         <div class="brand-wordmark"><strong>connect</strong><span>TaskFlow platform</span></div>
       </a>
       <div class="sidebar-section-title">Workspace</div>
-      <ul class="nav-list"><li class="nav-item"><a class="nav-link" href="index.html"><span class="nav-label"><span class="nav-icon">⌂</span><span>Main dashboard</span></span><span></span></a></li>
-<li class="nav-item"><a class="nav-link active" href="task-description.html"><span class="nav-label"><span class="nav-icon">🗂</span><span>Task description</span></span><span class="nav-badge">12</span></a></li>
-<li class="nav-item"><a class="nav-link" href="planification.html"><span class="nav-label"><span class="nav-icon">🗓</span><span>Planification</span></span><span></span></a></li>
-<li class="nav-item"><a class="nav-link" href="inventory.html"><span class="nav-label"><span class="nav-icon">◫</span><span>Inventory</span></span><span class="nav-badge">8</span></a></li>
-<li class="nav-item"><a class="nav-link" href="alerts.html"><span class="nav-label"><span class="nav-icon">⚠</span><span>Alerts</span></span><span class="nav-badge">5</span></a></li>
-<li class="nav-item"><a class="nav-link" href="workers.html"><span class="nav-label"><span class="nav-icon">👥</span><span>Workers</span></span><span class="nav-badge">24</span></a></li>
-<li class="nav-item"><a class="nav-link" href="configuration.html"><span class="nav-label"><span class="nav-icon">⚙</span><span>Configuration</span></span><span></span></a></li></ul>
+      <ul class="nav-list">
+        <li class="nav-item"><a class="nav-link" href="index.html"><span class="nav-label"><span class="nav-icon">Home</span><span>Main dashboard</span></span><span></span></a></li>
+        <li class="nav-item"><a class="nav-link active" href="task-description.html"><span class="nav-label"><span class="nav-icon">Tasks</span><span>Task description</span></span><span class="nav-badge">12</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="planification.html"><span class="nav-label"><span class="nav-icon">Plan</span><span>Planification</span></span><span></span></a></li>
+        <li class="nav-item"><a class="nav-link" href="inventory.html"><span class="nav-label"><span class="nav-icon">Stock</span><span>Inventory</span></span><span class="nav-badge">8</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="alerts.html"><span class="nav-label"><span class="nav-icon">Warn</span><span>Alerts</span></span><span class="nav-badge">5</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="workers.html"><span class="nav-label"><span class="nav-icon">Crew</span><span>Workers</span></span><span class="nav-badge">24</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="configuration.html"><span class="nav-label"><span class="nav-icon">Config</span><span>Configuration</span></span><span></span></a></li>
+      </ul>
       <div class="sidebar-footer">
         <strong>Frontend demo only</strong>
         Built to feel like a live operations platform with mock data and a Garmin-inspired interface.
@@ -41,8 +43,8 @@
           </div>
         </div>
         <div class="topbar-right">
-          <button class="icon-button" type="button" aria-label="Sync">☁</button>
-          <button class="icon-button" type="button" aria-label="Notifications">🔔</button>
+          <button class="icon-button" type="button" aria-label="Sync">S</button>
+          <button class="icon-button" type="button" aria-label="Notifications">N</button>
           <button class="icon-button" type="button" aria-label="Help">?</button>
           <div class="user-pill">
             <div class="avatar">BB</div>
@@ -51,58 +53,194 @@
         </div>
       </header>
 
-      <main class="content">
+      <main class="content task-page" data-task-manager>
         <div class="page-header">
           <div>
             <h1>Task description</h1>
-            <p>Create, inspect, and document the operational tasks that will later be connected to your server-side data model.</p>
+            <p>Review all active tasks in one place, filter the queue, and open any task to update ownership, status, priority, descriptions, and comments.</p>
           </div>
-          <div class="action-row"><a class="button" href="index.html">Back to dashboard</a><button class="button button-primary" type="button">Save task</button></div>
+          <div class="action-row">
+            <a class="button" href="index.html">Back to dashboard</a>
+            <button class="button button-primary" type="button" data-open-task-modal>Create task</button>
+          </div>
         </div>
-        <div class="notice-bar"><span>This page is a static demo of a structured task sheet.</span><span>Last updated · 11:04</span></div>
-    <section class="grid detail-grid">
-      <article class="card"><div class="card-inner"><div class="card-header"><div><h2 class="card-title">Current task</h2><p class="card-subtitle">Task #TK-481</p></div><span class="pill red">Urgent</span></div>
-        <div class="form-grid">
-          <label class="form-field"><span>Title</span><input class="text-input" value="Prepare equipment inspection brief" /></label>
-          <label class="form-field"><span>Assigned to</span><input class="text-input" value="Maya Henderson" /></label>
-          <label class="form-field"><span>Status</span><select class="select-input"><option>In progress</option><option>Planned</option><option>Blocked</option><option>Done</option></select></label>
-          <label class="form-field"><span>Due date</span><input class="text-input" value="2026-07-07 15:00" /></label>
-          <label class="form-field"><span>Priority</span><select class="select-input"><option>Urgent</option><option>Normal</option><option>Low</option></select></label>
-          <label class="form-field"><span>Department</span><input class="text-input" value="Field Operations" /></label>
-          <label class="form-field full-span"><span>Description</span><textarea class="text-input">Compile the complete inspection sequence, attach the required equipment checklist, and confirm that all crew members have acknowledged their assigned steps.</textarea></label>
+
+        <div class="notice-bar">
+          <span>Task list view with local demo data, filters, create flow, and edit capability.</span>
+          <span data-last-updated>Last updated - 11:04</span>
         </div>
-      </div></article>
 
-      <div class="stack">
-        <article class="card"><div class="card-inner"><div class="card-header"><div><h2 class="card-title">Checklist</h2><p class="card-subtitle">Execution prerequisites</p></div></div>
-          <ul class="list-clean">
-            <li class="task-row"><div class="row-main"><strong>Attach safety document set</strong><span>Required before dispatch</span></div><span class="pill green">Done</span></li>
-            <li class="task-row"><div class="row-main"><strong>Confirm worker attendance</strong><span>Pending final confirmation</span></div><span class="pill orange">Pending</span></li>
-            <li class="task-row"><div class="row-main"><strong>Reserve vehicle slot</strong><span>Vehicle #VH-12</span></div><span class="pill blue">Booked</span></li>
-            <li class="task-row"><div class="row-main"><strong>Upload briefing notes</strong><span>Owner: supervisor</span></div><span class="pill gray">Open</span></li>
-          </ul>
-        </div></article>
-        <article class="card"><div class="card-inner"><div class="card-header"><div><h2 class="card-title">Activity log</h2><p class="card-subtitle">Recent actions</p></div></div>
-          <ul class="list-clean">
-            <li class="event-row"><div class="row-main"><strong>11:00 · Maya added route notes</strong><span>3 comments saved</span></div></li>
-            <li class="event-row"><div class="row-main"><strong>09:30 · Supervisor updated due date</strong><span>Moved from 16:00 to 15:00</span></div></li>
-            <li class="event-row"><div class="row-main"><strong>08:45 · Checklist generated</strong><span>Template: inspection-v2</span></div></li>
-          </ul>
-        </div></article>
-      </div>
-    </section>
+        <section class="grid kpi-grid">
+          <article class="card kpi-card">
+            <div class="card-inner">
+              <div class="card-subtitle">Visible tasks</div>
+              <div class="metric" data-metric-visible>0</div>
+              <div class="delta">After current filters</div>
+            </div>
+          </article>
+          <article class="card kpi-card">
+            <div class="card-inner">
+              <div class="card-subtitle">In progress</div>
+              <div class="metric" data-metric-progress>0</div>
+              <div class="delta positive">Currently being executed</div>
+            </div>
+          </article>
+          <article class="card kpi-card">
+            <div class="card-inner">
+              <div class="card-subtitle">Blocked</div>
+              <div class="metric" data-metric-blocked>0</div>
+              <div class="delta warning">Need follow-up</div>
+            </div>
+          </article>
+          <article class="card kpi-card">
+            <div class="card-inner">
+              <div class="card-subtitle">Completed</div>
+              <div class="metric" data-metric-completed>0</div>
+              <div class="delta">Hidden when toggle is active</div>
+            </div>
+          </article>
+        </section>
 
-    <section class="card"><div class="card-inner"><div class="card-header"><div><h2 class="card-title">Related tasks</h2><p class="card-subtitle">Dependencies and follow-up tasks</p></div><a class="muted-link" href="#">Export CSV</a></div>
-      <div class="table-wrap"><table class="table"><thead><tr><th>ID</th><th>Task</th><th>Owner</th><th>Status</th><th>Due</th><th>Dependency</th></tr></thead><tbody>
-      <tr><td>TK-474</td><td>Validate equipment tags</td><td>Carlos</td><td><span class="pill green">Done</span></td><td>Today 08:00</td><td>None</td></tr>
-      <tr><td>TK-478</td><td>Approve crew assignment</td><td>Naomi</td><td><span class="pill orange">Pending</span></td><td>Today 12:30</td><td>Required before start</td></tr>
-      <tr><td>TK-489</td><td>Finalize post-inspection report</td><td>Julien</td><td><span class="pill blue">Planned</span></td><td>Tomorrow 17:00</td><td>Starts after TK-481</td></tr>
-      </tbody></table></div>
-    </div></section>
+        <section class="card">
+          <div class="card-inner">
+            <div class="card-header">
+              <div>
+                <h2 class="card-title">Filters</h2>
+                <p class="card-subtitle">Narrow the list by owner, status, or priority.</p>
+              </div>
+              <button class="button button-soft" type="button" data-reset-filters>Reset filters</button>
+            </div>
+
+            <div class="task-filters">
+              <label class="form-field">
+                <span>Owner</span>
+                <select class="select-input" data-filter-owner>
+                  <option value="all">All owners</option>
+                </select>
+              </label>
+              <label class="form-field">
+                <span>Status</span>
+                <select class="select-input" data-filter-status>
+                  <option value="all">All statuses</option>
+                </select>
+              </label>
+              <label class="form-field">
+                <span>Priority</span>
+                <select class="select-input" data-filter-priority>
+                  <option value="all">All priorities</option>
+                </select>
+              </label>
+              <label class="task-toggle">
+                <input type="checkbox" data-filter-hide-completed />
+                <span>Hide completed tasks</span>
+              </label>
+            </div>
+          </div>
+        </section>
+
+        <section class="grid task-layout">
+          <article class="card">
+            <div class="card-inner">
+              <div class="card-header">
+                <div>
+                  <h2 class="card-title">Current tasks</h2>
+                  <p class="card-subtitle">Select a task to inspect details or edit it directly.</p>
+                </div>
+              </div>
+
+              <div class="task-list" data-task-list></div>
+              <div class="empty-state" data-empty-state hidden>
+                <strong>No tasks match these filters.</strong>
+                <span>Try changing the owner, status, or priority filters.</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-inner task-detail-panel" data-task-detail-panel>
+              <div class="card-header">
+                <div>
+                  <h2 class="card-title">Task details</h2>
+                  <p class="card-subtitle">Click any task from the list to view its latest information.</p>
+                </div>
+              </div>
+              <div class="task-detail-empty">
+                <strong>No task selected yet.</strong>
+                <span>Pick a task from the list to preview its description, comments, and assignment details.</span>
+              </div>
+            </div>
+          </article>
+        </section>
+
         <div class="footer-note">Static GitHub-ready demo. Replace the mock content later with real server data.</div>
       </main>
     </div>
   </div>
+
+  <div class="modal-backdrop" data-task-modal hidden>
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div>
+          <h2 class="card-title" data-modal-title>Create task</h2>
+          <p class="card-subtitle">Fill in the task information and save it to the current local list.</p>
+        </div>
+        <button class="icon-button modal-close" type="button" aria-label="Close modal" data-close-task-modal>X</button>
+      </div>
+      <form class="modal-form" data-task-form>
+        <input type="hidden" name="id" />
+        <div class="form-grid">
+          <label class="form-field">
+            <span>Title</span>
+            <input class="text-input" name="title" required />
+          </label>
+          <label class="form-field">
+            <span>Owner</span>
+            <input class="text-input" name="owner" required />
+          </label>
+          <label class="form-field">
+            <span>Status</span>
+            <select class="select-input" name="status" required>
+              <option>Planned</option>
+              <option>In progress</option>
+              <option>Blocked</option>
+              <option>Completed</option>
+            </select>
+          </label>
+          <label class="form-field">
+            <span>Priority</span>
+            <select class="select-input" name="priority" required>
+              <option>Low</option>
+              <option>Normal</option>
+              <option>High</option>
+              <option>Urgent</option>
+            </select>
+          </label>
+          <label class="form-field">
+            <span>Department</span>
+            <input class="text-input" name="department" />
+          </label>
+          <label class="form-field">
+            <span>Due date</span>
+            <input class="text-input" name="dueDate" placeholder="2026-07-07 15:00" />
+          </label>
+          <label class="form-field full-span">
+            <span>Description</span>
+            <textarea class="text-input" name="description" required></textarea>
+          </label>
+          <label class="form-field full-span">
+            <span>Comments</span>
+            <textarea class="text-input" name="comments" placeholder="Add one comment per line"></textarea>
+          </label>
+        </div>
+
+        <div class="modal-actions">
+          <button class="button" type="button" data-close-task-modal>Cancel</button>
+          <button class="button button-primary" type="submit">Save task</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>

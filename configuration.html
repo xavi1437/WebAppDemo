@@ -22,13 +22,13 @@
       <ul class="nav-list"><li class="nav-item"><a class="nav-link" href="index.html"><span class="nav-label"><span class="nav-icon">⌂</span><span>Main dashboard</span></span><span></span></a></li>
 <li class="nav-item"><a class="nav-link" href="task-description.html"><span class="nav-label"><span class="nav-icon">🗂</span><span>Tasks</span></span><span class="nav-badge">12</span></a></li>
 <li class="nav-item"><a class="nav-link" href="planification.html"><span class="nav-label"><span class="nav-icon">🗓</span><span>Planning</span></span><span></span></a></li>
-<li class="nav-item"><a class="nav-link" href="inventory.html"><span class="nav-label"><span class="nav-icon">◫</span><span>Inventory</span></span><span class="nav-badge">8</span></a></li>
+<li class="nav-item"><a class="nav-link" href="inventory.html"><span class="nav-label"><span class="nav-icon">◫</span><span>Purchase tickets</span></span><span class="nav-badge">8</span></a></li>
 <li class="nav-item"><a class="nav-link" href="alerts.html"><span class="nav-label"><span class="nav-icon">⚠</span><span>Alerts</span></span><span class="nav-badge">5</span></a></li>
 <li class="nav-item"><a class="nav-link" href="workers.html"><span class="nav-label"><span class="nav-icon">👥</span><span>Workers</span></span><span class="nav-badge">24</span></a></li>
 <li class="nav-item"><a class="nav-link active" href="configuration.html"><span class="nav-label"><span class="nav-icon">⚙</span><span>Configuration</span></span><span></span></a></li></ul>
       <div class="sidebar-footer">
         <strong>Operations workspace</strong>
-        Shared command center for tasks, schedules, inventory, alerts, and frontline coordination.
+        Shared command center for tasks, schedules, purchase tickets, alerts, and frontline coordination.
       </div>
     </aside>
 
@@ -55,7 +55,6 @@
       <main class="content">
         <div class="page-header">
           <div>
-            <h1>Configuration</h1>
             <p>Configure visual behavior, alert rules, task defaults, and access settings for the eventual connected platform.</p>
           </div>
           <div class="action-row"><button class="button">Reset defaults</button><button class="button button-primary">Publish changes</button></div>
@@ -69,7 +68,7 @@
       </div></article>
       <article class="card"><div class="card-inner"><div class="card-header"><div><h2 class="card-title">Alert routing</h2><p class="card-subtitle">Who gets notified</p></div></div>
         <div class="setting-row"><div class="setting-copy"><strong>Critical alerts to admins</strong><span>Email and in-app notification.</span></div><div class="toggle on"></div></div>
-        <div class="setting-row"><div class="setting-copy"><strong>Inventory warnings to stock managers</strong><span>Notify when thresholds are crossed.</span></div><div class="toggle on"></div></div>
+        <div class="setting-row"><div class="setting-copy"><strong>Purchase ticket warnings to buyers</strong><span>Notify when requests are urgent or blocking a task.</span></div><div class="toggle on"></div></div>
         <div class="setting-row"><div class="setting-copy"><strong>Task breach escalation</strong><span>Escalate 30 minutes after missed deadline.</span></div><div class="toggle on"></div></div>
         <div class="setting-row"><div class="setting-copy"><strong>Worker no-show SMS</strong><span>Send SMS backup notifications.</span></div><div class="toggle"></div></div>
       </div></article>
@@ -80,7 +79,7 @@
         <label class="form-field"><span>Default task owner</span><input class="text-input" value="Unassigned" /></label>
         <label class="form-field"><span>Default task priority</span><select class="select-input"><option>Normal</option><option>Urgent</option><option>Low</option></select></label>
         <label class="form-field"><span>Timezone</span><select class="select-input"><option>Europe/Paris</option><option>UTC</option><option>America/New_York</option></select></label>
-        <label class="form-field"><span>Inventory threshold policy</span><select class="select-input"><option>Percent based</option><option>Unit based</option></select></label>
+        <label class="form-field"><span>Purchase approval policy</span><select class="select-input"><option>Manager approval</option><option>Auto-approve low cost</option></select></label>
         <label class="form-field full-span"><span>Notes</span><textarea class="text-input">This configuration page is a static demonstration for GitHub Pages. Connect a backend later to persist user settings.</textarea></label>
       </div>
     </div></section>

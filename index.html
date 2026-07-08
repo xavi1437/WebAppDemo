@@ -22,13 +22,13 @@
       <ul class="nav-list"><li class="nav-item"><a class="nav-link active" href="index.html"><span class="nav-label"><span class="nav-icon">⌂</span><span>Main dashboard</span></span><span></span></a></li>
 <li class="nav-item"><a class="nav-link" href="task-description.html"><span class="nav-label"><span class="nav-icon">🗂</span><span>Tasks</span></span><span class="nav-badge">12</span></a></li>
 <li class="nav-item"><a class="nav-link" href="planification.html"><span class="nav-label"><span class="nav-icon">🗓</span><span>Planning</span></span><span></span></a></li>
-<li class="nav-item"><a class="nav-link" href="inventory.html"><span class="nav-label"><span class="nav-icon">◫</span><span>Inventory</span></span><span class="nav-badge">8</span></a></li>
+<li class="nav-item"><a class="nav-link" href="inventory.html"><span class="nav-label"><span class="nav-icon">◫</span><span>Purchase tickets</span></span><span class="nav-badge">8</span></a></li>
 <li class="nav-item"><a class="nav-link" href="alerts.html"><span class="nav-label"><span class="nav-icon">⚠</span><span>Alerts</span></span><span class="nav-badge">5</span></a></li>
 <li class="nav-item"><a class="nav-link" href="workers.html"><span class="nav-label"><span class="nav-icon">👥</span><span>Workers</span></span><span class="nav-badge">24</span></a></li>
 <li class="nav-item"><a class="nav-link" href="configuration.html"><span class="nav-label"><span class="nav-icon">⚙</span><span>Configuration</span></span><span></span></a></li></ul>
       <div class="sidebar-footer">
         <strong>Operations workspace</strong>
-        Shared command center for tasks, schedules, inventory, alerts, and frontline coordination.
+        Shared command center for tasks, schedules, purchase tickets, alerts, and frontline coordination.
       </div>
     </aside>
 
@@ -55,7 +55,6 @@
       <main class="content">
         <div class="page-header">
           <div>
-            <h1>Main dashboard</h1>
             <p>A central panel for daily work, task progression, worker activity, stock health, and time-sensitive alerts.</p>
           </div>
           <div class="action-row"><a class="button" href="planification.html">View schedule</a><a class="button button-primary" href="task-description.html">Add task</a></div>
@@ -63,7 +62,7 @@
         <section class="grid kpi-grid">
       <article class="card kpi-card"><div class="card-inner"><div class="card-header"><div><h2 class="card-title">Open tasks</h2><p class="card-subtitle">Tasks currently in progress</p></div><span class="pill blue">Live</span></div><div class="metric">128</div><span class="delta positive">▲ 14 from yesterday</span></div></article>
       <article class="card kpi-card"><div class="card-inner"><div class="card-header"><div><h2 class="card-title">Planned jobs</h2><p class="card-subtitle">Activities scheduled this week</p></div><span class="pill green">7-day</span></div><div class="metric">42</div><span class="delta positive">▲ 6 newly assigned</span></div></article>
-      <article class="card kpi-card"><div class="card-inner"><div class="card-header"><div><h2 class="card-title">Low inventory</h2><p class="card-subtitle">Items under reorder threshold</p></div><span class="pill orange">Attention</span></div><div class="metric">8</div><span class="delta warning">● Reorder soon</span></div></article>
+      <article class="card kpi-card"><div class="card-inner"><div class="card-header"><div><h2 class="card-title">Purchase tickets</h2><p class="card-subtitle">Task-linked items waiting to be bought</p></div><span class="pill orange">Attention</span></div><div class="metric">8</div><span class="delta warning">● Needs buyer follow-up</span></div></article>
       <article class="card kpi-card"><div class="card-inner"><div class="card-header"><div><h2 class="card-title">Critical alerts</h2><p class="card-subtitle">Issues requiring review</p></div><span class="pill red">Priority</span></div><div class="metric">5</div><span class="delta negative">▼ 2 resolved today</span></div></article>
     </section>
 
@@ -119,14 +118,14 @@
         <article class="card"><div class="card-inner"><div class="card-header"><div><h2 class="card-title">Quick actions</h2><p class="card-subtitle">Create or navigate instantly</p></div></div>
           <div class="quick-actions">
             <a class="quick-tile" href="task-description.html"><div class="quick-plus">+</div><strong>New task</strong><span>Create a fresh task brief</span></a>
-            <a class="quick-tile" href="inventory.html"><div class="quick-plus">+</div><strong>Add stock</strong><span>Register received items</span></a>
+            <a class="quick-tile" href="inventory.html"><div class="quick-plus">+</div><strong>Create purchase</strong><span>Log something that must be bought</span></a>
             <a class="quick-tile" href="alerts.html"><div class="quick-plus">+</div><strong>Flag issue</strong><span>Open an alert manually</span></a>
             <a class="quick-tile" href="configuration.html"><div class="quick-plus">+</div><strong>Settings</strong><span>Adjust platform rules</span></a>
           </div>
         </div></article>
       </div>
     </section>
-        <div class="footer-note">Executive operations overview for task throughput, staffing, inventory readiness, and escalations.</div>
+        <div class="footer-note">Executive operations overview for task throughput, staffing, purchase readiness, and escalations.</div>
       </main>
     </div>
   </div>

@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Workers — TaskFlow Connect</title>
-  <meta name="description" content="TaskFlow Connect static dashboard demo." />
+  <title>Workers - TaskFlow Connect</title>
+  <meta name="description" content="TaskFlow Connect workspace member administration demo." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -19,16 +19,18 @@
         <div class="brand-wordmark"><strong>connect</strong><span>Operations workspace</span></div>
       </a>
       <div class="sidebar-section-title">Workspace</div>
-      <ul class="nav-list"><li class="nav-item"><a class="nav-link" href="index.html"><span class="nav-label"><span class="nav-icon">⌂</span><span>Main dashboard</span></span><span></span></a></li>
-<li class="nav-item"><a class="nav-link" href="task-description.html"><span class="nav-label"><span class="nav-icon">🗂</span><span>Tasks</span></span><span class="nav-badge">12</span></a></li>
-<li class="nav-item"><a class="nav-link" href="planification.html"><span class="nav-label"><span class="nav-icon">🗓</span><span>Planning</span></span><span></span></a></li>
-<li class="nav-item"><a class="nav-link" href="inventory.html"><span class="nav-label"><span class="nav-icon">◫</span><span>Inventory</span></span><span class="nav-badge">8</span></a></li>
-<li class="nav-item"><a class="nav-link" href="alerts.html"><span class="nav-label"><span class="nav-icon">⚠</span><span>Alerts</span></span><span class="nav-badge">5</span></a></li>
-<li class="nav-item"><a class="nav-link active" href="workers.html"><span class="nav-label"><span class="nav-icon">👥</span><span>Workers</span></span><span class="nav-badge">24</span></a></li>
-<li class="nav-item"><a class="nav-link" href="configuration.html"><span class="nav-label"><span class="nav-icon">⚙</span><span>Configuration</span></span><span></span></a></li></ul>
+      <ul class="nav-list">
+        <li class="nav-item"><a class="nav-link" href="index.html"><span class="nav-label"><span class="nav-icon">&#8962;</span><span>Main dashboard</span></span><span></span></a></li>
+        <li class="nav-item"><a class="nav-link" href="task-description.html"><span class="nav-label"><span class="nav-icon">&#128450;</span><span>Tasks</span></span><span class="nav-badge">12</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="planification.html"><span class="nav-label"><span class="nav-icon">&#128467;</span><span>Planning</span></span><span></span></a></li>
+        <li class="nav-item"><a class="nav-link" href="inventory.html"><span class="nav-label"><span class="nav-icon">&#9723;</span><span>Purchase tickets</span></span><span class="nav-badge">8</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="alerts.html"><span class="nav-label"><span class="nav-icon">&#9888;</span><span>Alerts</span></span><span class="nav-badge">5</span></a></li>
+        <li class="nav-item"><a class="nav-link active" href="workers.html"><span class="nav-label"><span class="nav-icon">&#128101;</span><span>Workers</span></span><span class="nav-badge">24</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="configuration.html"><span class="nav-label"><span class="nav-icon">&#9881;</span><span>Configuration</span></span><span></span></a></li>
+      </ul>
       <div class="sidebar-footer">
         <strong>Operations workspace</strong>
-        Shared command center for tasks, schedules, inventory, alerts, and frontline coordination.
+        Shared command center for tasks, schedules, purchase tickets, alerts, and frontline coordination.
       </div>
     </aside>
 
@@ -42,8 +44,8 @@
           </div>
         </div>
         <div class="topbar-right">
-          <button class="icon-button" type="button" aria-label="Sync">☁</button>
-          <button class="icon-button" type="button" aria-label="Notifications">🔔</button>
+          <button class="icon-button" type="button" aria-label="Sync">&#9729;</button>
+          <button class="icon-button" type="button" aria-label="Notifications">&#128276;</button>
           <button class="icon-button" type="button" aria-label="Help">?</button>
           <div class="user-pill">
             <div class="avatar">BB</div>
@@ -52,40 +54,102 @@
         </div>
       </header>
 
-      <main class="content">
-        <div class="page-header">
-          <div>
-            <h1>Workers</h1>
-            <p>See worker profiles, assignments, utilization, and availability to support task dispatch and planning decisions.</p>
-          </div>
-          <div class="action-row"><button class="button">Import roster</button><button class="button button-primary">Add worker</button></div>
-        </div>
-        <section class="grid workers-grid">
-      <article class="card"><div class="card-inner"><div class="card-header"><div><h2 class="card-title">Team snapshot</h2><p class="card-subtitle">Current workforce</p></div><span class="pill blue">24 active</span></div>
-        <div class="profile-card"><div class="profile-avatar">24</div><div><strong>84% average availability</strong><p class="card-subtitle">3 workers in training · 2 off shift · 1 pending documentation renewal</p></div></div>
-        <div class="progress-group"><div class="progress-label"><span>Shift coverage</span><strong>91%</strong></div><div class="progress"><span style="width:91%"></span></div></div>
-        <div class="progress-group"><div class="progress-label"><span>Certification coverage</span><strong>87%</strong></div><div class="progress success"><span style="width:87%"></span></div></div>
-      </div></article>
-      <article class="card"><div class="card-inner"><div class="card-header"><div><h2 class="card-title">Availability by team</h2><p class="card-subtitle">Today</p></div></div>
-        <ul class="list-clean">
-          <li class="worker-row"><div class="row-main"><strong>Field team</strong><span>14 active · 2 off</span></div><span class="pill blue">88%</span></li>
-          <li class="worker-row"><div class="row-main"><strong>Warehouse crew</strong><span>8 active · 1 training</span></div><span class="pill green">90%</span></li>
-          <li class="worker-row"><div class="row-main"><strong>Maintenance</strong><span>6 active · 2 on call</span></div><span class="pill orange">75%</span></li>
-          <li class="worker-row"><div class="row-main"><strong>Admin support</strong><span>5 active</span></div><span class="pill green">100%</span></li>
-        </ul>
-      </div></article>
-    </section>
+      <main class="content workers-admin-page">
+        <section class="card">
+          <div class="card-inner">
+            <div class="card-header">
+              <div>
+                <h2 class="card-title">Workspace members</h2>
+              </div>
+              <div class="action-row">
+                <button class="button button-primary">Invite worker</button>
+              </div>
+            </div>
 
-    <section class="card"><div class="card-inner"><div class="card-header"><div><h2 class="card-title">Worker roster</h2><p class="card-subtitle">Representative people data</p></div><div class="filter-row"><span class="filter-chip active">All</span><span class="filter-chip">On shift</span><span class="filter-chip">Training</span><span class="filter-chip">Needs review</span></div></div>
-      <div class="table-wrap"><table class="table"><thead><tr><th>Name</th><th>Role</th><th>Team</th><th>Shift</th><th>Current assignment</th><th>Status</th></tr></thead><tbody>
-      <tr><td>Maya Henderson</td><td>Field supervisor</td><td>Field operations</td><td>07:00 - 15:00</td><td>TK-481 · inspection brief</td><td><span class="pill blue">On shift</span></td></tr>
-      <tr><td>Carlos Diaz</td><td>Warehouse operator</td><td>Warehouse</td><td>08:00 - 16:00</td><td>Incoming shipment intake</td><td><span class="pill green">Available</span></td></tr>
-      <tr><td>Naomi Patel</td><td>Quality lead</td><td>Administration</td><td>09:00 - 17:00</td><td>Approval queue review</td><td><span class="pill orange">Busy</span></td></tr>
-      <tr><td>Julien Moreau</td><td>Maintenance technician</td><td>Maintenance</td><td>06:00 - 14:00</td><td>Repair cycle</td><td><span class="pill red">On call</span></td></tr>
-      <tr><td>Sofia Alvarez</td><td>Inventory manager</td><td>Warehouse</td><td>08:00 - 16:00</td><td>Cycle count</td><td><span class="pill blue">On shift</span></td></tr>
-      </tbody></table></div>
-    </div></section>
-        <div class="footer-note">Workforce operations workspace for staffing visibility, shift readiness, and assignment coverage.</div>
+            <div class="table-wrap workers-table-wrap">
+              <table class="table workers-admin-table">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Phone number</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <div class="member-cell">
+                        <span class="member-avatar member-avatar-yellow">MH</span>
+                        <span class="member-name">Maya Henderson</span>
+                      </div>
+                    </td>
+                    <td>maya.henderson@taskflowconnect.com</td>
+                    <td>Supervisor</td>
+                    <td>+34 611 245 801</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="member-cell">
+                        <span class="member-avatar member-avatar-green">CD</span>
+                        <span class="member-name">Carlos Diaz</span>
+                      </div>
+                    </td>
+                    <td>carlos.diaz@taskflowconnect.com</td>
+                    <td>Worker</td>
+                    <td>+34 612 904 317</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="member-cell">
+                        <span class="member-avatar member-avatar-blue">NP</span>
+                        <span class="member-name">Naomi Patel</span>
+                      </div>
+                    </td>
+                    <td>naomi.patel@taskflowconnect.com</td>
+                    <td>Administrator</td>
+                    <td>+34 620 118 492</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="member-cell">
+                        <span class="member-avatar member-avatar-pink">JM</span>
+                        <span class="member-name">Julien Moreau</span>
+                      </div>
+                    </td>
+                    <td>julien.moreau@taskflowconnect.com</td>
+                    <td>Worker</td>
+                    <td>+34 645 731 266</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="member-cell">
+                        <span class="member-avatar member-avatar-orange">SA</span>
+                        <span class="member-name">Sofia Alvarez</span>
+                      </div>
+                    </td>
+                    <td>sofia.alvarez@taskflowconnect.com</td>
+                    <td>Supervisor</td>
+                    <td>+34 655 204 914</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="member-cell">
+                        <span class="member-avatar member-avatar-red">RE</span>
+                        <span class="member-name">Rob Evans</span>
+                      </div>
+                    </td>
+                    <td>rob.evans@taskflowconnect.com</td>
+                    <td>Administrator</td>
+                    <td>+34 671 553 028</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <div class="footer-note">Workers access management view for inviting members, assigning roles, and maintaining the minimum contact data required by the application.</div>
       </main>
     </div>
   </div>

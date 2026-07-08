@@ -23,14 +23,14 @@
         <li class="nav-item"><a class="nav-link" href="index.html"><span class="nav-label"><span class="nav-icon">&#8962;</span><span>Main dashboard</span></span><span></span></a></li>
         <li class="nav-item"><a class="nav-link" href="task-description.html"><span class="nav-label"><span class="nav-icon">&#128450;</span><span>Tasks</span></span><span class="nav-badge">12</span></a></li>
         <li class="nav-item"><a class="nav-link active" href="planification.html"><span class="nav-label"><span class="nav-icon">&#128467;</span><span>Planning</span></span><span></span></a></li>
-        <li class="nav-item"><a class="nav-link" href="inventory.html"><span class="nav-label"><span class="nav-icon">&#9723;</span><span>Inventory</span></span><span class="nav-badge">8</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="inventory.html"><span class="nav-label"><span class="nav-icon">&#9723;</span><span>Purchase tickets</span></span><span class="nav-badge">8</span></a></li>
         <li class="nav-item"><a class="nav-link" href="alerts.html"><span class="nav-label"><span class="nav-icon">&#9888;</span><span>Alerts</span></span><span class="nav-badge">5</span></a></li>
         <li class="nav-item"><a class="nav-link" href="workers.html"><span class="nav-label"><span class="nav-icon">&#128101;</span><span>Workers</span></span><span class="nav-badge">24</span></a></li>
         <li class="nav-item"><a class="nav-link" href="configuration.html"><span class="nav-label"><span class="nav-icon">&#9881;</span><span>Configuration</span></span><span></span></a></li>
       </ul>
       <div class="sidebar-footer">
         <strong>Operations workspace</strong>
-        Shared command center for tasks, schedules, inventory, alerts, and frontline coordination.
+        Shared command center for tasks, schedules, purchase tickets, alerts, and frontline coordination.
       </div>
     </aside>
 
@@ -57,12 +57,11 @@
       <main class="content planification-page" data-planification-manager>
         <div class="page-header">
           <div>
-            <h1>Planning</h1>
-            <p>Define periodic tasks once, set how often they repeat, and view their upcoming execution days in a weekly or monthly calendar.</p>
+            <p>Manage the schedule like a Trello calendar: browse the month, open a day agenda, and keep recurring templates tied to the live planning view.</p>
           </div>
           <div class="action-row">
             <div class="planification-section-tabs" role="tablist" aria-label="Planification sections">
-              <button class="planification-section-tab active" type="button" data-plan-tab="calendar" aria-pressed="true">Calendar</button>
+              <button class="planification-section-tab active" type="button" data-plan-tab="calendar" aria-pressed="true">Schedule</button>
               <button class="planification-section-tab" type="button" data-plan-tab="tasks" aria-pressed="false">Periodic tasks</button>
             </div>
             <button class="button button-primary" type="button" data-open-recurring-modal data-plan-create-button hidden>Create periodic task</button>
@@ -78,7 +77,7 @@
           <div class="card-inner">
             <div class="card-header">
               <div>
-                <h2 class="card-title" data-calendar-title>Weekly calendar</h2>
+                <h2 class="card-title" data-calendar-title>Calendar schedule</h2>
                 <p class="card-subtitle" data-calendar-range>Loading schedule...</p>
               </div>
               <div class="planification-calendar-actions">
@@ -88,14 +87,26 @@
                   <button class="button button-soft" type="button" data-today-plan>Today</button>
                 </div>
                 <div class="calendar-toggle" role="tablist" aria-label="Calendar view">
-                  <button class="calendar-toggle-button active" type="button" data-calendar-view="week" aria-pressed="true">Weekly</button>
-                  <button class="calendar-toggle-button" type="button" data-calendar-view="month" aria-pressed="false">Monthly</button>
+                  <button class="calendar-toggle-button" type="button" data-calendar-view="week" aria-pressed="false">Weekly</button>
+                  <button class="calendar-toggle-button active" type="button" data-calendar-view="month" aria-pressed="true">Monthly</button>
                 </div>
                 <span class="pill blue" data-plan-occurrence-count>0 occurrences</span>
               </div>
             </div>
 
-            <div class="planner-calendar" data-planner-calendar></div>
+            <div class="planification-board">
+              <div class="planner-calendar" data-planner-calendar></div>
+              <section class="planner-sidebar-card planner-agenda-panel">
+                <div class="planner-sidebar-head">
+                  <div>
+                    <h3>Day agenda</h3>
+                    <p data-selected-date-label>Loading selected day...</p>
+                  </div>
+                  <span class="pill gray" data-selected-date-count>0 cards</span>
+                </div>
+                <div class="planner-agenda-list" data-selected-date-list></div>
+              </section>
+            </div>
           </div>
         </section>
 
@@ -238,6 +249,19 @@
         <button class="icon-button modal-close" type="button" aria-label="Close periodic task details" data-close-recurring-detail-modal>X</button>
       </div>
       <div class="task-detail-panel" data-recurring-detail-panel></div>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" data-occurrence-modal hidden>
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div>
+          <h2 class="card-title" data-occurrence-modal-title>Schedule item</h2>
+          <p class="card-subtitle" data-occurrence-modal-subtitle>Details for the selected calendar card.</p>
+        </div>
+        <button class="icon-button modal-close" type="button" aria-label="Close schedule item details" data-close-occurrence-modal>X</button>
+      </div>
+      <div class="task-detail-panel" data-occurrence-detail-panel></div>
     </div>
   </div>
 

@@ -119,7 +119,7 @@ if (taskManagerRoot) {
       owner: "Aisha Patel",
       status: "In progress",
       priority: "High",
-      department: "Inventory",
+      department: "Procurement",
       dueDate: "2026-07-07",
       description: "Review emergency kit levels, replace missing consumables, and log the replenishment in the storage register.",
       history: [
@@ -617,7 +617,7 @@ if (taskManagerRoot) {
 
   function closeModal() {
     elements.modal.hidden = true;
-    if (elements.detailModal.hidden) {
+    if (elements.detailModal.hidden && elements.occurrenceModal.hidden) {
       document.body.classList.remove("modal-open");
     }
     resetForm();
@@ -1019,7 +1019,7 @@ if (planificationRoot) {
       id: "TK-492",
       title: "Restock emergency kits",
       owner: "Aisha Patel",
-      lane: "Inventory",
+      lane: "Procurement",
       priority: "High",
       status: "In progress",
       date: "2026-07-07",
@@ -1048,9 +1048,10 @@ if (planificationRoot) {
   const state = {
     selectedTaskId: recurringTasks[0]?.id || null,
     editingTaskId: null,
-    currentView: "week",
+    currentView: "month",
     currentTab: "calendar",
     cursorDate: new Date(2026, 6, 7),
+    selectedDateIso: "2026-07-07",
     filters: {
       lane: "all",
       unit: "all",
@@ -1084,6 +1085,14 @@ if (planificationRoot) {
     detailPanel: document.querySelector("[data-recurring-detail-panel]"),
     detailHeaderActions: document.querySelector("[data-recurring-detail-header-actions]"),
     closeDetailModalButtons: document.querySelectorAll("[data-close-recurring-detail-modal]"),
+    selectedDateLabel: planificationRoot.querySelector("[data-selected-date-label]"),
+    selectedDateCount: planificationRoot.querySelector("[data-selected-date-count]"),
+    selectedDateList: planificationRoot.querySelector("[data-selected-date-list]"),
+    occurrenceModal: document.querySelector("[data-occurrence-modal]"),
+    occurrenceModalTitle: document.querySelector("[data-occurrence-modal-title]"),
+    occurrenceModalSubtitle: document.querySelector("[data-occurrence-modal-subtitle]"),
+    occurrenceDetailPanel: document.querySelector("[data-occurrence-detail-panel]"),
+    closeOccurrenceModalButtons: document.querySelectorAll("[data-close-occurrence-modal]"),
     templateCount: planificationRoot.querySelector("[data-plan-template-count]"),
     occurrenceCount: planificationRoot.querySelector("[data-plan-occurrence-count]"),
     lastUpdated: planificationRoot.querySelector("[data-plan-last-updated]")
@@ -1143,6 +1152,15 @@ if (planificationRoot) {
     }).format(date);
   }
 
+  function formatDateWithWeekday(date) {
+    return new Intl.DateTimeFormat("en-GB", {
+      weekday: "long",
+      day: "2-digit",
+      month: "long",
+      year: "numeric"
+    }).format(date);
+  }
+
   function formatTimestamp(value) {
     return new Intl.DateTimeFormat("en-GB", {
       day: "2-digit",
@@ -1172,6 +1190,10 @@ if (planificationRoot) {
     return left.getFullYear() === right.getFullYear()
       && left.getMonth() === right.getMonth()
       && left.getDate() === right.getDate();
+  }
+
+  function getDateKey(date) {
+    return startOfDay(date).toISOString().slice(0, 10);
   }
 
   function addInterval(date, value, unit) {
@@ -1233,13 +1255,35 @@ if (planificationRoot) {
 
   function getFilteredTasks() {
     return recurringTasks.filter((task) => {
-      if (state.filters.lane !== "all" && task.lane !== state.filters.lane) {
+      if (state.filters.lane !== "all" && task.lane.toLowerCase() !== state.filters.lane.toLowerCase()) {
         return false;
       }
       if (state.filters.unit !== "all" && task.frequencyUnit !== state.filters.unit) {
         return false;
       }
       if (state.filters.hidePaused && task.status === "Paused") {
+        return false;
+      }
+      if (state.filters.search) {
+        const searchValue = state.filters.search.toLowerCase();
+        const haystack = [
+          task.title,
+          task.owner,
+          task.lane,
+          task.area,
+          task.description
+        ].join(" ").toLowerCase();
+        if (!haystack.includes(searchValue)) {
+          return false;
+        }
+      }
+      return true;
+    });
+  }
+
+  function getFilteredScheduledTasks() {
+    return scheduledTasks.filter((task) => {
+      if (state.filters.lane !== "all" && task.lane.toLowerCase() !== state.filters.lane.toLowerCase()) {
         return false;
       }
       if (state.filters.search) {
@@ -1357,8 +1401,8 @@ if (planificationRoot) {
     }
 
     return {
-      start: new Date(state.cursorDate.getFullYear(), state.cursorDate.getMonth(), 1),
-      end: new Date(state.cursorDate.getFullYear(), state.cursorDate.getMonth() + 1, 0)
+      start: startOfMonthGrid(state.cursorDate),
+      end: endOfMonthGrid(state.cursorDate)
     };
   }
 
@@ -1392,6 +1436,28 @@ if (planificationRoot) {
     const futureEnd = new Date(start);
     futureEnd.setMonth(futureEnd.getMonth() + 6);
     return generateOccurrencesForTask(task, start, futureEnd, 250).slice(0, count);
+  }
+
+  function getOccurrenceKey(occurrence) {
+    return [occurrence.source, occurrence.taskId, getDateKey(occurrence.date), occurrence.time].join("|");
+  }
+
+  function renderOccurrenceCard(item) {
+    return `
+      <button class="planner-occurrence ${escapeHtml(item.color)}" type="button" data-occurrence-key="${escapeHtml(getOccurrenceKey(item))}">
+        <span class="planner-occurrence-time">${escapeHtml(item.time)}</span>
+        <strong>${escapeHtml(item.title)}</strong>
+        <span class="planner-occurrence-meta">${escapeHtml(item.owner)} · ${escapeHtml(item.lane)}</span>
+      </button>
+    `;
+  }
+
+  function getOccurrencesForDate(occurrences, dateIso) {
+    return occurrences.filter((item) => getDateKey(item.date) === dateIso);
+  }
+
+  function findOccurrenceByKey(occurrences, occurrenceKey) {
+    return occurrences.find((item) => getOccurrenceKey(item) === occurrenceKey) || null;
   }
 
   function renderList(filteredTasks) {
@@ -1503,7 +1569,7 @@ if (planificationRoot) {
 
   function closeRecurringDetailModal() {
     elements.detailModal.hidden = true;
-    if (elements.modal.hidden) {
+    if (elements.modal.hidden && elements.occurrenceModal.hidden) {
       document.body.classList.remove("modal-open");
     }
   }
@@ -1632,6 +1698,192 @@ if (planificationRoot) {
     } else {
       renderMonthCalendar(occurrences);
     }
+  }
+
+  function renderWeekCalendar(occurrences, rangeStart) {
+    const today = startOfDay(new Date());
+    const byDate = new Map();
+
+    occurrences.forEach((occurrence) => {
+      const key = getDateKey(occurrence.date);
+      const items = byDate.get(key) || [];
+      items.push(occurrence);
+      byDate.set(key, items);
+    });
+
+    const days = Array.from({ length: 7 }, (_, index) => {
+      const date = new Date(rangeStart);
+      date.setDate(rangeStart.getDate() + index);
+      return date;
+    });
+
+    elements.calendarTitle.textContent = "Weekly schedule";
+    elements.calendarRange.textContent = `${formatDateLong(days[0])} to ${formatDateLong(days[6])}`;
+    elements.calendar.innerHTML = `
+      <div class="planner-weekday-row">
+        ${days.map((day) => `<div class="planner-weekday">${escapeHtml(formatDayLabel(day))}</div>`).join("")}
+      </div>
+      <div class="planner-week-grid">
+        ${days.map((day) => {
+          const key = getDateKey(day);
+          const items = byDate.get(key) || [];
+          return `
+            <div class="planner-day-column ${datesMatch(day, today) ? "is-today" : ""} ${state.selectedDateIso === key ? "is-selected" : ""}" data-plan-date="${escapeHtml(key)}">
+              <div class="planner-day-head">
+                <strong>${escapeHtml(formatDateShort(day))}</strong>
+                <span>${items.length} card${items.length === 1 ? "" : "s"}</span>
+              </div>
+              <div class="planner-occurrence-list">
+                ${items.length ? items.map((item) => renderOccurrenceCard(item)).join("") : ""}
+              </div>
+            </div>
+          `;
+        }).join("")}
+      </div>
+    `;
+  }
+
+  function renderMonthCalendar(occurrences) {
+    const today = startOfDay(new Date());
+    const monthStart = new Date(state.cursorDate.getFullYear(), state.cursorDate.getMonth(), 1);
+    const gridStart = startOfMonthGrid(state.cursorDate);
+    const gridEnd = endOfMonthGrid(state.cursorDate);
+    const byDate = new Map();
+
+    occurrences.forEach((occurrence) => {
+      const key = getDateKey(occurrence.date);
+      const items = byDate.get(key) || [];
+      items.push(occurrence);
+      byDate.set(key, items);
+    });
+
+    const cells = [];
+    const pointer = new Date(gridStart);
+    while (pointer <= gridEnd) {
+      cells.push(new Date(pointer));
+      pointer.setDate(pointer.getDate() + 1);
+    }
+
+    const weekdayLabels = Array.from({ length: 7 }, (_, index) => {
+      const labelDate = new Date(gridStart);
+      labelDate.setDate(gridStart.getDate() + index);
+      return labelDate;
+    });
+
+    elements.calendarTitle.textContent = "Calendar schedule";
+    elements.calendarRange.textContent = formatMonthTitle(monthStart);
+    elements.calendar.innerHTML = `
+      <div class="planner-weekday-row">
+        ${weekdayLabels.map((day) => `<div class="planner-weekday">${escapeHtml(formatDayLabel(day))}</div>`).join("")}
+      </div>
+      <div class="planner-month-grid">
+        ${cells.map((day) => {
+          const key = getDateKey(day);
+          const items = byDate.get(key) || [];
+          const visibleItems = items.slice(0, 4);
+          const isOutside = day.getMonth() !== state.cursorDate.getMonth();
+          return `
+            <div class="planner-month-cell ${isOutside ? "is-outside" : ""} ${datesMatch(day, today) ? "is-today" : ""} ${state.selectedDateIso === key ? "is-selected" : ""}" data-plan-date="${escapeHtml(key)}">
+              <div class="planner-month-head">
+                <strong>${escapeHtml(String(day.getDate()))}</strong>
+                <span>${items.length ? `${items.length} cards` : formatDayLabel(day)}</span>
+              </div>
+              <div class="planner-occurrence-list">
+                ${visibleItems.length ? visibleItems.map((item) => renderOccurrenceCard(item)).join("") : ""}
+                ${items.length > visibleItems.length ? `<button class="planner-more-button" type="button" data-plan-date="${escapeHtml(key)}">+${items.length - visibleItems.length} more</button>` : ""}
+              </div>
+            </div>
+          `;
+        }).join("")}
+      </div>
+    `;
+  }
+
+  function renderSelectedDateAgenda(occurrences) {
+    const selectedIso = state.selectedDateIso || getDateKey(state.cursorDate);
+    const selectedDate = parseDateOnly(selectedIso) || state.cursorDate;
+    const selectedOccurrences = getOccurrencesForDate(occurrences, selectedIso);
+
+    elements.selectedDateLabel.textContent = formatDateWithWeekday(selectedDate);
+    elements.selectedDateCount.textContent = `${selectedOccurrences.length} card${selectedOccurrences.length === 1 ? "" : "s"}`;
+
+    if (!selectedOccurrences.length) {
+      elements.selectedDateList.innerHTML = "";
+      return;
+    }
+
+    elements.selectedDateList.innerHTML = selectedOccurrences.map((item) => `
+      <article class="planner-agenda-item" data-occurrence-key="${escapeHtml(getOccurrenceKey(item))}">
+        <div class="planner-agenda-top">
+          <div>
+            <strong>${escapeHtml(item.title)}</strong>
+            <p>${escapeHtml(item.taskId)} · ${escapeHtml(item.source === "periodic" ? "Recurring template" : item.status)}</p>
+          </div>
+          <span class="pill ${escapeHtml(item.color)}">${escapeHtml(item.time)}</span>
+        </div>
+        <p>${escapeHtml(item.description)}</p>
+        <div class="planner-agenda-meta">
+          <span>${escapeHtml(item.owner)}</span>
+          <span>${escapeHtml(item.area)}</span>
+          <span>${escapeHtml(item.duration)}</span>
+        </div>
+      </article>
+    `).join("");
+  }
+
+  function renderOccurrenceDetail(occurrence) {
+    if (!occurrence) {
+      return;
+    }
+
+    const recurringTask = occurrence.source === "periodic"
+      ? recurringTasks.find((task) => task.id === occurrence.taskId)
+      : null;
+
+    elements.occurrenceModalTitle.textContent = occurrence.title;
+    elements.occurrenceModalSubtitle.textContent = `${formatDateWithWeekday(occurrence.date)} at ${occurrence.time}`;
+    elements.occurrenceDetailPanel.innerHTML = `
+      <div class="occurrence-detail">
+        <p class="occurrence-detail-copy">${escapeHtml(occurrence.description)}</p>
+        <div class="detail-metadata">
+          <div class="meta-box"><span>Card ID</span><strong>${escapeHtml(occurrence.taskId)}</strong></div>
+          <div class="meta-box"><span>Type</span><strong>${escapeHtml(occurrence.source === "periodic" ? "Recurring template" : "Scheduled task")}</strong></div>
+          <div class="meta-box"><span>Owner</span><strong>${escapeHtml(occurrence.owner)}</strong></div>
+          <div class="meta-box"><span>Lane</span><strong>${escapeHtml(occurrence.lane)}</strong></div>
+          <div class="meta-box"><span>Priority</span><strong>${escapeHtml(occurrence.priority)}</strong></div>
+          <div class="meta-box"><span>Status</span><strong>${escapeHtml(occurrence.status)}</strong></div>
+          <div class="meta-box"><span>Area</span><strong>${escapeHtml(occurrence.area)}</strong></div>
+          <div class="meta-box"><span>Duration</span><strong>${escapeHtml(occurrence.duration)}</strong></div>
+        </div>
+        ${recurringTask ? `<div class="occurrence-detail-actions"><button class="button button-soft" type="button" data-open-related-template="${escapeHtml(recurringTask.id)}">Open recurring template</button></div>` : ""}
+      </div>
+    `;
+  }
+
+  function openOccurrenceModal(occurrence) {
+    renderOccurrenceDetail(occurrence);
+    elements.occurrenceModal.hidden = false;
+    document.body.classList.add("modal-open");
+  }
+
+  function closeOccurrenceModal() {
+    elements.occurrenceModal.hidden = true;
+    if (elements.modal.hidden && elements.detailModal.hidden) {
+      document.body.classList.remove("modal-open");
+    }
+  }
+
+  function renderCalendar(filteredTasks, filteredScheduledTasks) {
+    const occurrences = getVisibleOccurrences(filteredTasks, []);
+    elements.occurrenceCount.textContent = `${occurrences.length} occurrence${occurrences.length === 1 ? "" : "s"}`;
+
+    if (state.currentView === "week") {
+      renderWeekCalendar(occurrences, getVisibleRange().start);
+    } else {
+      renderMonthCalendar(occurrences);
+    }
+
+    renderSelectedDateAgenda(occurrences);
   }
 
   function renderViewButtons() {
@@ -1772,7 +2024,7 @@ if (planificationRoot) {
     renderTabState();
     renderViewButtons();
     renderList(filteredTasks);
-    renderCalendar(recurringTasks, scheduledTasks);
+    renderCalendar(filteredTasks, []);
     setLastUpdated();
   }
 
@@ -1818,6 +2070,7 @@ if (planificationRoot) {
 
   elements.todayButton.addEventListener("click", () => {
     state.cursorDate = new Date();
+    state.selectedDateIso = getDateKey(state.cursorDate);
     renderAll();
   });
 
@@ -1845,11 +2098,23 @@ if (planificationRoot) {
     }
   });
 
+  elements.closeOccurrenceModalButtons.forEach((button) => {
+    button.addEventListener("click", closeOccurrenceModal);
+  });
+
+  elements.occurrenceModal.addEventListener("click", (event) => {
+    if (event.target === elements.occurrenceModal) {
+      closeOccurrenceModal();
+    }
+  });
+
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape" && !elements.modal.hidden) {
       closeModal();
     } else if (event.key === "Escape" && !elements.detailModal.hidden) {
       closeRecurringDetailModal();
+    } else if (event.key === "Escape" && !elements.occurrenceModal.hidden) {
+      closeOccurrenceModal();
     }
   });
 
@@ -1859,6 +2124,32 @@ if (planificationRoot) {
   });
 
   document.addEventListener("click", (event) => {
+    const occurrenceCard = event.target.closest("[data-occurrence-key]");
+    if (occurrenceCard) {
+      const occurrences = getVisibleOccurrences(getFilteredTasks(), []);
+      const occurrence = findOccurrenceByKey(occurrences, occurrenceCard.getAttribute("data-occurrence-key"));
+      if (occurrence) {
+        state.selectedDateIso = getDateKey(occurrence.date);
+        renderAll();
+        openOccurrenceModal(occurrence);
+      }
+      return;
+    }
+
+    const planDate = event.target.closest("[data-plan-date]");
+    if (planDate) {
+      state.selectedDateIso = planDate.getAttribute("data-plan-date");
+      renderAll();
+      return;
+    }
+
+    const relatedTemplateButton = event.target.closest("[data-open-related-template]");
+    if (relatedTemplateButton) {
+      closeOccurrenceModal();
+      openRecurringDetailModal(relatedTemplateButton.getAttribute("data-open-related-template"));
+      return;
+    }
+
     const taskCard = event.target.closest("[data-recurring-task-id]");
     if (taskCard) {
       state.selectedTaskId = taskCard.getAttribute("data-recurring-task-id");

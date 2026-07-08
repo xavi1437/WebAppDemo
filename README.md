@@ -7,7 +7,7 @@ A static, GitHub-ready dashboard demo inspired by the visual structure of Garmin
 - `index.html` — Main dashboard panel
 - `task-description.html` — Task detail / form page
 - `planification.html` — Weekly planning page
-- `inventory.html` — Inventory overview page
+- `inventory.html` — Purchase tickets page for items that must be bought
 - `alerts.html` — Alerts and history page
 - `workers.html` — Worker roster and availability page
 - `configuration.html` — Settings page
